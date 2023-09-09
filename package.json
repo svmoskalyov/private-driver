@@ -12,8 +12,21 @@
     "lint:es": "npx eslint src",
     "lint:es:fix": "npm run lint:es -- --fix",
     "lint:style": "stylelint src",
-    "lint:style:fix": "npm run lint:style -- --fix",
-    "format": "npm run prettier:fix && npm run lint:es:fix && npm run lint:style:fix"
+    "lint:style:fix": "npm run lint:style -- --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "npm run prettier:fix",
+      "npm run lint:es:fix"
+    ],
+    "src/**/*.{scss}": [
+      "npm run lint:style:fix"
+    ]
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -33,6 +46,8 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
     "prettier": "^3.0.3",
     "stylelint": "^15.10.3",
     "stylelint-config-clean-order": "^5.2.0",
