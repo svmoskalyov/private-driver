@@ -1,0 +1,14 @@
+node_modules/
+dist/
+build/
+logs/
+.DS_Store
+.vscode/*
+*.local
+*.log
+*.tsx
+*.jsx
+*.ts
+*.js
+*.md
+*.svg
