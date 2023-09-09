@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+$fonts: (
+  'primary': 'Roboto',
+);
+
+$fontsWeights: (
+  'semibold': 700,
+  'medium': 500,
+  'regular': 400,
+);
+
+$fontsSizes: (
+  'extrabig': 48px,
+  'larg': 40px,
+  'great': 24px,
+  'goodly': 22px,
+  'big': 20px,
+  'babig': 18px,
+  'norm': 16px,
+  'med': 14px,
+  'smal': 12px,
+);
+
+$colors: (
+  'primary': #41adff,
+  'secondory': #0067b2,
+  'accent': #00c8ff,
+  'muted': rgba(18, 20, 23, 0.2),
+  'bgHero': #f8f8f8,
+  'star': #ffc531,
+  'price': #38cd3e,
+  'textPrimary': #121417,
+  'textSecondory': #8a8a89,
+  'textStat': rgba(18, 20, 23, 0.7),
+  'defaultBlack': #000,
+  'defaultWhite': #fff,
+);
