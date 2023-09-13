@@ -1,3 +1,5 @@
 .layout {
-
+  display: grid;
+  grid-template-rows: 50px 1fr;
+  margin: 0 auto;
 }
