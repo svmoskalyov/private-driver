@@ -11,15 +11,27 @@ export const Header = () => {
     <header className={s.header}>
       <div>Logo</div>
 
-      <NavLink to='/' className={setActive}>
-        Home
-      </NavLink>
-      <NavLink to='drivers' className={setActive}>
-        Drivers
-      </NavLink>
-      <NavLink to='favorites' className={setActive}>
-        Favorites
-      </NavLink>
+      <nav>
+        <ul>
+          <li>
+            <NavLink to='/' className={setActive}>
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to='drivers' className={setActive}>
+              Drivers
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to='favorites' className={setActive}>
+              Favorites
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
+
+      <div>buttons</div>
     </header>
   )
 }
