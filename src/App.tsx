@@ -7,7 +7,7 @@ import {
   createRoutesFromElements,
 } from 'react-router-dom'
 
-import { Layout } from './components/Layout/Layout'
+import { Layout } from './components/Layout'
 
 const Home = React.lazy(() => import('./pages/Home'))
 const Drivers = React.lazy(() => import('./pages/Drivers'))
@@ -25,7 +25,9 @@ const router = createBrowserRouter(
 )
 
 function App() {
-  return <RouterProvider router={router} />
+  return (
+    <RouterProvider router={router} fallbackElement={<div>LOADING...</div>} />
+  )
 }
 
 export default App
