@@ -5,15 +5,13 @@ import s from './Layout.module.scss'
 
 import { Header } from '../Header'
 
-export const Layout = () => {
-  return (
-    <div className={s.layout}>
-      <Header />
-      <main>
-        <Suspense fallback={<div>loading...</div>}>
-          <Outlet />
-        </Suspense>
-      </main>
-    </div>
-  )
-}
+export const Layout = () => (
+  <div className={s.layout}>
+    <Header />
+    <main>
+      <Suspense fallback={<div>loading...</div>}>
+        <Outlet />
+      </Suspense>
+    </main>
+  </div>
+)
