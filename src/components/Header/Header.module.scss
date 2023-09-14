@@ -51,3 +51,42 @@
   cursor: default;
   color: getColor(accent);
 }
+.btnBox {
+  display: flex;
+  gap: 16px;
+}
+
+.btnReg {
+  padding: 14px 39px;
+
+  font-size: getFontSize(norm);
+  font-weight: getFontWeight(semibold);
+  line-height: 20px;
+  color: getColor(defaultWhite);
+
+  background-color: getColor(textPrimary);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btnLog {
+  font-size: getFontSize(norm);
+  font-weight: getFontWeight(semibold);
+  line-height: 20px;
+  color: getColor(textPrimary);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btnReg:hover,
+.btnReg:focus-visible,
+.btnLog:hover,
+.btnLog:focus-visible {
+  color: getColor(accent);
+}
+
+.icon {
+  size: 20px;
+  margin-right: 8px;
+  color: getColor(primary);
+}
