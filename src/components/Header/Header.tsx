@@ -35,7 +35,7 @@ export const Header = () => (
 
     <div className={s.btnBox}>
       <Button
-        className={s.btnLog}
+        className={s.btnLogin}
         onClick={() => console.log('Log in')}
         aria-label='button Log in'
       >
@@ -43,7 +43,7 @@ export const Header = () => (
         Log in
       </Button>
       <Button
-        className={s.btnReg}
+        className={s.btnRegistre}
         onClick={() => console.log('Registration')}
         aria-label='button Registration'
       >

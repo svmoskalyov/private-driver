@@ -37,8 +37,6 @@
   color: getColor(textPrimary);
 
   border: none;
-
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navLink:hover:not(.activeLink),
@@ -56,7 +54,7 @@
   gap: 16px;
 }
 
-.btnReg {
+.btnRegistre {
   padding: 14px 39px;
 
   font-size: getFontSize(norm);
@@ -69,7 +67,7 @@
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.btnLog {
+.btnLogin {
   font-size: getFontSize(norm);
   font-weight: getFontWeight(semibold);
   line-height: 20px;
@@ -78,10 +76,10 @@
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.btnReg:hover,
-.btnReg:focus-visible,
-.btnLog:hover,
-.btnLog:focus-visible {
+.btnRegistre:hover,
+.btnRegistre:focus-visible,
+.btnLogin:hover,
+.btnLogin:focus-visible {
   color: getColor(accent);
 }
 
