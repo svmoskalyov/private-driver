@@ -7,6 +7,7 @@ import {
   limitToFirst,
   startAt,
   endAt,
+  get,
 } from 'firebase/database'
 
 import { db } from './firebaseConfig'
@@ -14,16 +15,15 @@ import { db } from './firebaseConfig'
 const database = getDatabase(db)
 const dbRef = ref(database, '/drivers')
 
-const getTotalDriversApi = () => {
+export const getTotalDriversApi = async () => {
   onValue(dbRef, (snap) => {
     const data = snap.val() || []
-    console.log('🚀 ~ getTotalDriversApi ~ data:', data)
 
     return data
   })
 }
 
-const getDriversApi = () => {
+export const getDriversApi = () => {
   onValue(
     query(dbRef, orderByChild('driverId'), limitToFirst(4), startAt(1201)),
     // query(dbRef, orderByChild('driverId'), startAt(1201), endAt(1204)),
@@ -36,5 +36,3 @@ const getDriversApi = () => {
     },
   )
 }
-
-export { getTotalDriversApi, getDriversApi }
