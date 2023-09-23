@@ -1,3 +1,5 @@
+export {}
+
 declare module '*.svg' {
   const content: unknown
   export default content
@@ -6,4 +8,11 @@ declare module '*.svg' {
 declare module '*.png' {
   const content: unknown
   export default content
+}
+
+declare global {
+  type Driver = {
+    driverId: number
+    name: string
+  }
 }
