@@ -3,8 +3,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { getDrivers, getTotalDrivers } from './driversOperations'
 
 type DriversState = {
-  items: object[]
-  favorites: object[]
+  items: Driver[]
+  favorites: Driver[]
   totalDrivers: number
   startId: number
   isLoading: boolean
@@ -24,7 +24,7 @@ const driversSlice = createSlice({
   name: 'drivers',
   initialState,
   reducers: {
-    setFavorite(state, { payload }) {
+    setFavorite(state, { payload }: PayloadAction<Driver[]>) {
       console.log('🚀 ~ setFavorite ~ payload:', payload)
 
       //   state.items = state.items.map((el) =>
@@ -40,10 +40,8 @@ const driversSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getTotalDrivers.fulfilled, (state, { payload }) => {
-        console.log('🚀 ~ getTotalDrivers ~ payload:', payload)
-
         state.isLoading = false
-        // state.totalDrivers = payload.length
+        state.totalDrivers = payload.length
       })
       .addCase(getDrivers.fulfilled, (state, { payload }) => {
         console.log('🚀 ~ .addCase ~ payload:', payload)

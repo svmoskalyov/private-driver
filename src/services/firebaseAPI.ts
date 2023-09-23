@@ -1,17 +1,36 @@
-import {
-  getDatabase,
-  ref,
-  onValue,
-  query,
-  orderByChild,
-  limitToFirst,
-  startAt,
-  endAt,
-  get,
-} from 'firebase/database'
+import axios from 'axios'
 
 import { db } from './firebaseConfig'
+// console.log('🚀 ~ db:', db.options.databaseURL)
 
+axios.defaults.baseURL = db.options.databaseURL
+
+export const getTotalDriversApi = async (): Promise<Driver[]> => {
+  const { data } = await axios.get<Driver[]>('/drivers.json')
+  return data
+}
+
+export const getDriversApi = async (startId = 1201) => {
+  const limit = startId === 1201 ? 4 : 3
+  const endId = startId + limit
+
+  const res = await axios
+    .get('/drivers.json', {
+      params: {
+        orderBy: `"driverId"`,
+        startAt: startId,
+        endAt: endId,
+        print: 'pretty',
+      },
+    })
+    .then(({ data }) =>
+      Object.entries(data).map(([, drivers]) => ({ ...drivers })),
+    )
+
+  return res
+}
+
+/**
 const database = getDatabase(db)
 const dbRef = ref(database, '/drivers')
 
@@ -36,3 +55,4 @@ export const getDriversApi = () => {
     },
   )
 }
+*/
