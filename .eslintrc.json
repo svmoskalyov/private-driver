@@ -43,6 +43,7 @@
     "no-unused-vars": "off",
     "prettier/prettier": "error",
     "react/display-name": "off",
+    "react/prop-types": "warn",
     "react/no-children-prop": "off",
     "react/react-in-jsx-scope": "off",
     "react-hooks/rules-of-hooks": "error",
