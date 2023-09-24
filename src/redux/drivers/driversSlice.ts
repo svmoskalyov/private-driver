@@ -15,7 +15,7 @@ const initialState: DriversState = {
   items: [],
   favorites: [],
   totalDrivers: 0,
-  startId: 0,
+  startId: 1201,
   isLoading: false,
   error: null,
 }
@@ -44,14 +44,12 @@ const driversSlice = createSlice({
         state.totalDrivers = payload.length
       })
       .addCase(getDrivers.fulfilled, (state, { payload }) => {
-        console.log('🚀 ~ .addCase ~ payload:', payload)
-
         state.isLoading = false
-        // state.items = [
-        //   ...state.items,
-        //   ...payload.data.map((el) => ({ ...el, isFav: false })),
-        // ]
-        // state.startId = state.startId + payload.data.length
+        state.items = [
+          ...state.items,
+          ...payload.map((el) => ({ ...el, isFav: false })),
+        ]
+        state.startId = state.startId + payload.length
       })
       .addMatcher(
         (action) => action.type.endsWith('/pending'),

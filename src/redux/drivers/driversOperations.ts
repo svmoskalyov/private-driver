@@ -15,14 +15,15 @@ export const getTotalDrivers = createAsyncThunk<
   }
 })
 
-export const getDrivers = createAsyncThunk(
-  'drivers/getDrivers',
-  async (startId, thunkApi) => {
-    try {
-      const data = await getDriversApi(startId)
-      return { data }
-    } catch (error) {
-      return thunkApi.rejectWithValue(error)
-    }
-  },
-)
+export const getDrivers = createAsyncThunk<
+  Driver[],
+  number,
+  { rejectValue: unknown }
+>('drivers/getDrivers', async (startId, thunkApi) => {
+  try {
+    const data = await getDriversApi(startId)
+    return data
+  } catch (error) {
+    return thunkApi.rejectWithValue(error)
+  }
+})

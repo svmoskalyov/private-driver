@@ -1,5 +1,13 @@
 import s from './CardList.module.scss'
 
-export const CardList = () => {
-  return <div className={s.cardList}>CardList</div>
+import { Props } from './CardList.types'
+
+export const CardList = ({ catalog }: Props) => {
+  return (
+    <ul className={s.cardList}>
+      {catalog.map((el) => (
+        <li key={el.driverId}>{el.name} </li>
+      ))}
+    </ul>
+  )
 }
