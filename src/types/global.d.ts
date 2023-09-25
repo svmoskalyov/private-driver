@@ -18,7 +18,6 @@ declare global {
     languages: string[]
     categories: string[]
     rating: number
-    reviews: object[]
     reviews: {
       reviewer_name: string
       reviewer_rating: number
