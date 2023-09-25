@@ -19,12 +19,12 @@ import {
 
 const Drivers = () => {
   const dispatch = useAppDispatch()
-  const initialized = useRef(false)
-  const loading = useAppSelector(selectIsLoading)
-  const err = useAppSelector(selectError)
-  const catalog = useAppSelector(selectDrivers)
-  const totalDrivers = useAppSelector(selectTotalDrivers)
-  const startId = useAppSelector(selectStartId)
+  const initialized = useRef<boolean>(false)
+  const loading = useAppSelector<boolean>(selectIsLoading)
+  const err = useAppSelector<string | null>(selectError)
+  const catalog = useAppSelector<Driver[]>(selectDrivers)
+  const totalDrivers = useAppSelector<number>(selectTotalDrivers)
+  const startId = useAppSelector<number>(selectStartId)
 
   const onClickLoadMore = () => {
     dispatch(getDrivers(startId))
