@@ -4,7 +4,7 @@ import { getDrivers, getTotalDrivers } from './driversOperations'
 
 type DriversState = {
   items: Driver[]
-  favorites: Driver[]
+  favorites: DriverFav[]
   totalDrivers: number
   startId: number
   isLoading: boolean

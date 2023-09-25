@@ -21,13 +21,18 @@ declare global {
     reviews: {
       reviewer_name: string
       reviewer_rating: number
+      reviewer_avatar: string
       comment: string
     }[]
     price_per_hour: number
     trips_made: number
-    avatar_url: string
+    driver_avatar: string
     driver_info: string
     skills: string[]
     experience: string
+  }
+
+  type DriverFav = Driver & {
+    isFav: boolean
   }
 }

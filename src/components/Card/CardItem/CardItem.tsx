@@ -1,5 +1,4 @@
 import s from './CardItem.module.scss'
-import { DriverFav } from './CardItem.types'
 
 export const CardItem = ({
   driverId,
@@ -11,7 +10,7 @@ export const CardItem = ({
   reviews,
   price_per_hour,
   trips_made,
-  avatar_url,
+  driver_avatar,
   driver_info,
   skills,
   experience,
@@ -23,7 +22,7 @@ export const CardItem = ({
         <img
           className={s.avatarDriver}
           loading='lazy'
-          src={avatar_url && `${avatar_url}`}
+          src={driver_avatar && `${driver_avatar}`}
           width={96}
           height={96}
           alt='avatar driver'
