@@ -124,6 +124,6 @@ export const CardItem = ({
     //   "Excellent time management",
     //   "Inclement weather driving"
     // ],
-    "experience": "Pick up clients and drop them off at destinations on time. Offer superior service by providing good conversation and a bottle of water for every passenger."
+    // "experience": "Pick up clients and drop them off at destinations on time. Offer superior service by providing good conversation and a bottle of water for every passenger."
 },
 */

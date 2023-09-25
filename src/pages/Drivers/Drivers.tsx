@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 
 import s from './Drivers.module.scss'
 
-import { CardList } from '../../components/CardList'
+import { CardList } from '../../components/Card/CardList'
 
 import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks'
 import {
