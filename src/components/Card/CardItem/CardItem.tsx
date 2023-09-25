@@ -50,15 +50,25 @@ export const CardItem = ({
       </div>
 
       <div>
-        Read more
         <p>{experience}</p>
         <div>
           <ul>
             {reviews?.map((e, i) => (
               <li key={i}>
-                <div>avatar</div>
-                <h3>{e.reviewer_name}</h3>
-                <span>{e.reviewer_rating}</span>
+                <div>
+                  <img
+                    className={s.avatarReviewer}
+                    loading='lazy'
+                    src={e.reviewer_avatar && `${e.reviewer_avatar}`}
+                    width={96}
+                    height={96}
+                    alt='avatar reviewer'
+                  />
+                  <div>
+                    <h3>{e.reviewer_name}</h3>
+                    <span>{e.reviewer_rating}</span>
+                  </div>
+                </div>
                 <p>{e.comment}</p>
               </li>
             ))}
@@ -91,38 +101,3 @@ export const CardItem = ({
     </li>
   )
 }
-
-/*
-{
-    // "driverId": 1201,
-    // "name": "John",
-    // "surname": "Doe",
-    // "languages": ["English", "Spanish"],
-    // "categories": ["A", "B", "BE", "C", "CE", "D", "DE"],
-    // "rating": 4.5,
-    "reviews": [
-      {
-        "reviewer_name": "Alice",
-        "reviewer_rating": 5,
-        "comment": "John is an excellent driver! I highly recommend him."
-      },
-      {
-        "reviewer_name": "Bob",
-        "reviewer_rating": 4,
-        "comment": "John is very communicative and positive. I highly recommend him."
-      }
-    ],
-    // "price_per_hour": 25,
-    // "trips_made": 1375,
-    // "avatar_url": "https://res.cloudinary.com/dganwbeyi/image/upload/v1694028291/avatarsdriver/ugujgkn2acxzgnpaciiz.jpg",
-    // "driver_info": "Friendly and outgoing car driver proficient in safe operations, passenger transportation and inclement weather driving.",
-    // "skills": [
-    //   "Great communication skills",
-    //   "Safety regulations",
-    //   "Problem-solving",
-    //   "Excellent time management",
-    //   "Inclement weather driving"
-    // ],
-    // "experience": "Pick up clients and drop them off at destinations on time. Offer superior service by providing good conversation and a bottle of water for every passenger."
-},
-*/
