@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { getDrivers, getTotalDrivers } from './driversOperations'
 
 type DriversState = {
-  items: Driver[]
+  items: DriverFav[]
   favorites: DriverFav[]
   totalDrivers: number
   startId: number

@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 
 import s from './Drivers.module.scss'
 
-import { CardList } from '../../components/Card/CardList'
+import { CardList } from '../../components/CardList'
 
 import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks'
 import {
@@ -22,7 +22,7 @@ const Drivers = () => {
   const initialized = useRef<boolean>(false)
   const loading = useAppSelector<boolean>(selectIsLoading)
   const err = useAppSelector<string | null>(selectError)
-  const catalog = useAppSelector<Driver[]>(selectDrivers)
+  const catalog = useAppSelector<DriverFav[]>(selectDrivers)
   const totalDrivers = useAppSelector<number>(selectTotalDrivers)
   const startId = useAppSelector<number>(selectStartId)
 

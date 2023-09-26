@@ -1,6 +1,9 @@
 import s from './CardItem.module.scss'
 
-import { Avatar } from '../../Avatar'
+import { Avatar } from '../Avatar'
+import { Button } from '../Button'
+import { Heart } from '../Heart'
+import { Reviewer } from '../Reviewer'
 
 export const CardItem = ({
   driverId,
@@ -47,20 +50,7 @@ export const CardItem = ({
       <div>
         <p>{experience}</p>
         <div>
-          <ul>
-            {reviews?.map((e, i) => (
-              <li key={i}>
-                <div>
-                  <Avatar src={e.reviewer_avatar} alt='avatar reviewer' />
-                  <div>
-                    <h3>{e.reviewer_name}</h3>
-                    <span>{e.reviewer_rating}</span>
-                  </div>
-                </div>
-                <p>{e.comment}</p>
-              </li>
-            ))}
-          </ul>
+          <Reviewer reviews={reviews} />
         </div>
       </div>
 
@@ -79,18 +69,15 @@ export const CardItem = ({
         </ul>
       </div>
 
-      <div>
-        <label>
-          <input
-            type='checkbox'
-            name='status'
-            checked={isFav}
-            onChange={() => console.log('checked')}
-          />
-        </label>
-      </div>
+      <Heart isFav={isFav} />
 
-      <button type='button'>book a trip</button>
+      <Button
+        className={s.btnBookTrip}
+        onClick={() => console.log('Book a trip')}
+        aria-label='button book a trip'
+      >
+        book a trip
+      </Button>
     </li>
   )
 }
