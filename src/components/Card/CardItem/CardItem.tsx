@@ -1,5 +1,7 @@
 import s from './CardItem.module.scss'
 
+import { Avatar } from '../../Avatar'
+
 export const CardItem = ({
   driverId,
   name,
@@ -18,15 +20,8 @@ export const CardItem = ({
 }: DriverFav) => {
   return (
     <li key={driverId} className={s.cardItem}>
-      <div className={s.avatarWrapper}>
-        <img
-          className={s.avatarDriver}
-          loading='lazy'
-          src={driver_avatar && `${driver_avatar}`}
-          width={96}
-          height={96}
-          alt='avatar driver'
-        />
+      <div className={s.avatarDriverWrapper}>
+        <Avatar src={driver_avatar} alt='avatar driver' />
       </div>
 
       <div>
@@ -56,14 +51,7 @@ export const CardItem = ({
             {reviews?.map((e, i) => (
               <li key={i}>
                 <div>
-                  <img
-                    className={s.avatarReviewer}
-                    loading='lazy'
-                    src={e.reviewer_avatar && `${e.reviewer_avatar}`}
-                    width={96}
-                    height={96}
-                    alt='avatar reviewer'
-                  />
+                  <Avatar src={e.reviewer_avatar} alt='avatar reviewer' />
                   <div>
                     <h3>{e.reviewer_name}</h3>
                     <span>{e.reviewer_rating}</span>
@@ -93,7 +81,12 @@ export const CardItem = ({
 
       <div>
         <label>
-          <input type='checkbox' name='status' checked={isFav} />
+          <input
+            type='checkbox'
+            name='status'
+            checked={isFav}
+            onChange={() => console.log('checked')}
+          />
         </label>
       </div>
 
