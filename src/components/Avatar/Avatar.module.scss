@@ -1,3 +1,5 @@
+@import '../../sass/utils/functions';
+
 .avatar {
   width: 96px;
   height: 96px;
@@ -13,4 +15,15 @@
 .avatarReviewer {
   width: 44px;
   height: 44px;
+}
+
+.avatarDriverWrapper {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 120px;
+  max-height: 120px;
+  border-radius: 50%;
+  border: 3px solid getColor(avatar);
+  background: getColor(defaultWhite);
 }
