@@ -2,6 +2,9 @@ import s from './CardItem.module.scss'
 
 import { Avatar } from '../Avatar'
 import { Button } from '../Button'
+import { DriverCategories } from '../DriverCategories'
+import { DriverInfo } from '../DriverInfo'
+import { DriverTopInfo } from '../DriverTopInfo'
 import { Heart } from '../Heart'
 import { Reviewer } from '../Reviewer'
 
@@ -23,61 +26,48 @@ export const CardItem = ({
 }: DriverFav) => {
   return (
     <li key={driverId} className={s.cardItem}>
-      <div className={s.avatarDriverWrapper}>
-        <Avatar src={driver_avatar} alt='avatar driver' />
-      </div>
+      <Avatar src={driver_avatar} />
 
-      <div>
-        <h2>
-          {name} {surname}
-        </h2>
-        <ul>
-          <li>
-            Speaks:
-            {languages?.map((e, i) => <span key={i}>{e}</span>)}
-          </li>
-          <li>
-            Driver Info:
-            <p>{driver_info}</p>
-          </li>
-          <li>
-            Skills:
-            {skills?.map((e, i) => <span key={i}>{e}</span>)}
-          </li>
-        </ul>
-      </div>
+      <div className={s.infoWrapper}>
+        <DriverInfo
+          name={name}
+          surname={surname}
+          languages={languages}
+          driver_info={driver_info}
+          skills={skills}
+        />
 
-      <div>
-        <p>{experience}</p>
-        <div>
+        <Button
+          className={s.btnMore}
+          onClick={() => console.log('Read more')}
+          aria-label='button read more'
+        >
+          Read more
+        </Button>
+
+        <div className={s.moreWrapper}>
+          <p className={s.moreText}>{experience}</p>
           <Reviewer reviews={reviews} />
         </div>
+
+        <DriverCategories categories={categories} />
+
+        <DriverTopInfo
+          rating={rating}
+          price_per_hour={price_per_hour}
+          trips_made={trips_made}
+        />
+
+        <Heart isFav={isFav} />
+
+        <Button
+          className={s.btnBookTrip}
+          onClick={() => console.log('Book a trip')}
+          aria-label='button book a trip'
+        >
+          book a trip
+        </Button>
       </div>
-
-      <div>
-        <ul>{categories?.map((e, i) => <li key={i}> {e} </li>)}</ul>
-      </div>
-
-      <div>
-        <ul>
-          <li>Trips made: {trips_made}</li>
-          <li>Rating {rating}</li>
-          <li>
-            Price / 1 hour:
-            <span>{price_per_hour}$</span>
-          </li>
-        </ul>
-      </div>
-
-      <Heart isFav={isFav} />
-
-      <Button
-        className={s.btnBookTrip}
-        onClick={() => console.log('Book a trip')}
-        aria-label='button book a trip'
-      >
-        book a trip
-      </Button>
     </li>
   )
 }
