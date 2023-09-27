@@ -1,3 +1,16 @@
 .avatar {
+  width: 96px;
+  height: 96px;
 
+  object-fit: cover;
+  object-position: top center;
+
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.avatarReviewer {
+  width: 44px;
+  height: 44px;
 }

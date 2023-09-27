@@ -1,13 +1,15 @@
 import s from './Avatar.module.scss'
 import { Props } from './Avatar.types'
 
-export const Avatar = ({ src, alt }: Props) => (
+export const Avatar = ({ src, name }: Props) => (
   <img
-    className={s.avatar}
+    className={
+      name === 'reviewer' ? `${s.avatar} ${s.avatarReviewer}` : s.avatar
+    }
     loading='lazy'
+    width={name === 'reviewer' ? 44 : 96}
+    height={name === 'reviewer' ? 44 : 96}
     src={src}
-    width={96}
-    height={96}
-    alt={alt}
+    alt={name === 'reviewer' ? 'avatar reviewer' : 'avatar driver'}
   />
 )
