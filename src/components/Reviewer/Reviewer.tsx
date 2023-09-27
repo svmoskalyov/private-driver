@@ -7,17 +7,17 @@ import { Avatar } from '../Avatar'
 export const Reviewer = ({ reviews }: Props) => {
   return (
     <div className={s.reviewer}>
-      <ul>
+      <ul className={s.reviewerList}>
         {reviews?.map((e, i) => (
-          <li key={i}>
-            <div>
-              <Avatar src={e.reviewer_avatar} alt='avatar reviewer' />
-              <div>
-                <h3>{e.reviewer_name}</h3>
-                <span>{e.reviewer_rating}</span>
+          <li className={s.reviewerItem} key={i}>
+            <div className={s.reviewerBox}>
+              <Avatar src={e.reviewer_avatar} name='reviewer' />
+              <div className={s.reviewerInfo}>
+                <h3 className={s.reviewerName}>{e.reviewer_name}</h3>
+                <span className={s.reviewerRaiting}>{e.reviewer_rating}</span>
               </div>
             </div>
-            <p>{e.comment}</p>
+            <p className={s.reviewerComment}>{e.comment}</p>
           </li>
         ))}
       </ul>
