@@ -1,15 +1,41 @@
-.driverInfo {
+@import '../../sass/utils/functions';
 
+.driverInfo {
 }
 
 .infoTitle {
-
+  margin-top: 32px;
+  margin-bottom: 32px;
+  color: getColor(textPrimary);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 24px;
 }
 
 .infoList {
-
+  margin-bottom: 16px;
 }
 
 .infoListItem {
-    
+  color: #8a8a89;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.infoListItem:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.infoText {
+  margin-left: 4px;
+  color: #121417;
+}
+
+.infoText.infoLang {
+  text-decoration-line: underline;
+}
+
+.infoLang:not(:last-child)::after,
+.infoText:not(:last-child)::after {
+  content: ',';
 }

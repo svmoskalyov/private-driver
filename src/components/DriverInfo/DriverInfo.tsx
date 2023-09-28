@@ -18,14 +18,14 @@ export const DriverInfo = ({
         <li className={s.infoListItem}>
           Speaks:
           {languages?.map((e, i) => (
-            <span className={s.infoLang} key={i}>
+            <span className={`${s.infoText} ${s.infoLang}`} key={i}>
               {e}
             </span>
           ))}
         </li>
         <li className={s.infoListItem}>
           Driver Info:
-          <p className={s.infoText}>{driver_info}</p>
+          <span className={s.infoText}>{driver_info}</span>
         </li>
         <li className={s.infoListItem}>
           Skills:
