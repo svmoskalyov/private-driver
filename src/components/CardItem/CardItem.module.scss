@@ -9,8 +9,15 @@
   outline: 1px solid tomato;
 }
 
+.topWrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 64px;
+}
+
 .driverName {
-  margin-top: 32px;
+  // margin-top: 32px;
   margin-bottom: 32px;
   color: getColor(textPrimary);
   font-size: 24px;

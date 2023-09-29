@@ -6,15 +6,11 @@ import { Props } from './Rating.types'
 
 export const Rating = ({ text, value }: Props) => {
   return (
-    <ul className={s.rating}>
-      <li>
-        <GoStarFill className={s.star} />
-      </li>
-      <li>
-        <span className={text ? s.ratingValueTop : s.ratingValue}>
-          {text ? text + ': ' + value.toFixed(1) : value.toFixed(1)}
-        </span>
-      </li>
-    </ul>
+    <div className={s.rating}>
+      <GoStarFill className={s.star} />
+      <span className={text ? s.ratingValueTop : s.ratingValue}>
+        {text ? text + ': ' + value.toFixed(1) : value.toFixed(1)}
+      </span>
+    </div>
   )
 }

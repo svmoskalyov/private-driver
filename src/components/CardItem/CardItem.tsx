@@ -29,6 +29,16 @@ export const CardItem = ({
       <Avatar src={driver_avatar} />
 
       <div>
+        <div className={s.topWrapper}>
+          <DriverTopInfo
+            rating={rating}
+            price_per_hour={price_per_hour}
+            trips_made={trips_made}
+          />
+
+          <Heart isFav={isFav} />
+        </div>
+
         <h2 className={s.driverName}>
           {name} {surname}
         </h2>
@@ -52,13 +62,13 @@ export const CardItem = ({
 
         <DriverCategories categories={categories} />
 
-        <DriverTopInfo
+        {/* <DriverTopInfo
           rating={rating}
           price_per_hour={price_per_hour}
           trips_made={trips_made}
         />
 
-        <Heart isFav={isFav} />
+        <Heart isFav={isFav} /> */}
 
         <Button
           className={s.btnBookTrip}
