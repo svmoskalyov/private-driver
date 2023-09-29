@@ -29,9 +29,11 @@ export const CardItem = ({
       <Avatar src={driver_avatar} />
 
       <div>
+        <h2 className={s.driverName}>
+          {name} {surname}
+        </h2>
+
         <DriverInfo
-          name={name}
-          surname={surname}
           languages={languages}
           driver_info={driver_info}
           skills={skills}
