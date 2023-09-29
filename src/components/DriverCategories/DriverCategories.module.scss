@@ -1,11 +1,28 @@
 .driverCategories {
-
 }
 
 .categoriesList {
-
+  display: flex;
+  gap: 8px;
+  margin-bottom: 32px;
 }
 
 .categoriesItems {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
 
+  border-radius: 50%;
+  border: 1px solid rgba(18, 20, 23, 0.2);
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.categoriesItemsChoice {
+  border: none;
+  background: #f4c550;
 }
