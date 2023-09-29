@@ -18,7 +18,7 @@ body {
   text-rendering: optimizeLegibility;
 
   color-scheme: light dark;
-  background-color: getColor(defaultWhite);
+  background-color: getColor(bgPrimary);
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

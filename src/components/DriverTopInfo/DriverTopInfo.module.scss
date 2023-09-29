@@ -1,3 +1,5 @@
+@import '../../sass/utils/functions';
+
 .topInfoList {
   display: inline-flex;
   gap: 16px;
@@ -6,7 +8,7 @@
 .topInfoItem {
   display: flex;
   align-items: center;
-  font-weight: 500;
+  font-weight: getFontWeight(medium);
   line-height: 24px;
 }
 
@@ -15,12 +17,12 @@
   margin-left: 16px;
   height: 70%;
   width: 1px;
-  background: rgba(18, 20, 23, 0.2);
+  background: getColor(muted);
 }
 
 .topInfoPrice {
   padding-left: 4px;
-  color: #38cd3e;
-  font-weight: 500;
+  color: getColor(price);
+  font-weight: getFontWeight(medium);
   line-height: 24px;
 }

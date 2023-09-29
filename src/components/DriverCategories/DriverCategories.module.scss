@@ -1,3 +1,5 @@
+@import '../../sass/utils/functions';
+
 .categoriesList {
   display: flex;
   gap: 8px;
@@ -12,14 +14,13 @@
   height: 44px;
 
   border-radius: 50%;
-  border: 1px solid rgba(18, 20, 23, 0.2);
-
-  font-size: 14px;
-  font-weight: 500;
+  border: 1px solid getColor(muted);
+  font-size: getFontSize(med);
+  font-weight: getFontWeight(medium);
   line-height: 16px;
 }
 
 .categoriesItemsChoice {
   border: none;
-  background: #41adff;
+  background: getColor(primary);
 }

@@ -5,8 +5,8 @@
 }
 
 .infoListItem {
-  color: #8a8a89;
-  font-weight: 500;
+  color: getColor(textSecondary);
+  font-weight: getFontWeight(medium);
   line-height: 24px;
 }
 
@@ -16,7 +16,7 @@
 
 .infoText {
   margin-left: 4px;
-  color: #121417;
+  color: getColor(textPrimary);
 }
 
 .infoText.infoLang {

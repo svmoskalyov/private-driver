@@ -1,3 +1,5 @@
+@import '../../sass/utils/functions';
+
 .cardItem {
   display: flex;
   padding: 24px;
@@ -5,8 +7,7 @@
   min-height: 328px;
   gap: 48px;
   border-radius: 24px;
-
-  outline: 1px solid tomato;
+  background-color: getColor(defaultWhite);
 }
 
 .topWrapper {
@@ -18,21 +19,21 @@
 
 .driverName {
   margin-bottom: 32px;
-  font-size: 24px;
-  font-weight: 500;
+  font-size: getFontSize(great);
+  font-weight: getFontWeight(medium);
   line-height: 24px;
 }
 
 .btnMore {
   margin-bottom: 32px;
-  font-weight: 500;
+  font-weight: getFontWeight(medium);
   line-height: 24px;
   text-decoration-line: underline;
 }
 
 .btnMore:hover,
 .btnMore:focus {
-  color: #00c8ff;
+  color: getColor(accent);
 }
 
 .experience {
@@ -43,10 +44,10 @@
 .btnBookTrip {
   padding: 16px 48px;
   border-radius: 12px;
-  background: #41adff;
+  background: getColor(primary);
 }
 
 .btnBookTrip:hover,
 .btnBookTrip:focus {
-  background: #00c8ff;
+  background: getColor(accent);
 }

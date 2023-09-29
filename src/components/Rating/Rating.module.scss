@@ -1,3 +1,5 @@
+@import '../../sass/utils/functions';
+
 .rating {
   display: inline-flex;
   align-items: center;
@@ -7,15 +9,15 @@
 .star {
   width: 16px;
   height: 16px;
-  color: #ffc531;
+  color: getColor(star);
 }
 
 .ratingValue {
-  font-weight: 500;
+  font-weight: getFontWeight(medium);
   line-height: 18px;
 }
 
 .ratingValueTop {
-  font-weight: 500;
+  font-weight: getFontWeight(medium);
   line-height: 24px;
 }
