@@ -1,2 +1,24 @@
-.reviewer {
+.reviewerList {
+  margin-bottom: 32px;
+}
+
+.reviewerItem:not(:last-child) {
+  margin-bottom: 32px;
+}
+
+.listBox {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.reviewerName {
+  color: #8a8a89;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.reviewerComment {
+  font-weight: 500;
+  line-height: 24px;
 }
