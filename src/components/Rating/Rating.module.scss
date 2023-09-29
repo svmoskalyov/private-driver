@@ -1,0 +1,20 @@
+.rating {
+  display: flex;
+  gap: 8px;
+}
+
+.star {
+  width: 16px;
+  height: 16px;
+  color: #ffc531;
+}
+
+.ratingValue {
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.ratingValueTop {
+  font-weight: 500;
+  line-height: 24px;
+}
