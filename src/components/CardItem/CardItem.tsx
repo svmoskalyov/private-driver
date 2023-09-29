@@ -28,7 +28,7 @@ export const CardItem = ({
     <li key={driverId} className={s.cardItem}>
       <Avatar src={driver_avatar} />
 
-      <div className={s.infoWrapper}>
+      <div>
         <DriverInfo
           name={name}
           surname={surname}
@@ -45,10 +45,8 @@ export const CardItem = ({
           Read more
         </Button>
 
-        <div className={s.moreWrapper}>
-          <p className={s.moreText}>{experience}</p>
-          <Reviewer reviews={reviews} />
-        </div>
+        <p className={s.experience}>{experience}</p>
+        <Reviewer reviews={reviews} />
 
         <DriverCategories categories={categories} />
 
