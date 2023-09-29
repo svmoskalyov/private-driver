@@ -1,15 +1,26 @@
-.driverTopInfo {
-
-}
-
 .topInfoList {
-
+  display: inline-flex;
+  gap: 16px;
 }
 
 .topInfoItem {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  line-height: 24px;
+}
 
+.topInfoItem:not(:last-child):after {
+  content: '';
+  margin-left: 16px;
+  height: 70%;
+  width: 1px;
+  background: rgba(18, 20, 23, 0.2);
 }
 
 .topInfoPrice {
-    
+  padding-left: 4px;
+  color: #38cd3e;
+  font-weight: 500;
+  line-height: 24px;
 }
