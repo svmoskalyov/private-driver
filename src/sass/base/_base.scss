@@ -13,12 +13,12 @@ body {
   font-family: getFont(primary), sans-serif;
   font-weight: getFontWeight(regular);
   font-style: normal;
-  color: getColor(defBlack);
+  color: getColor(textPrimary);
   -webkit-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
 
   color-scheme: light dark;
-  background-color: getColor(defWhite);
+  background-color: getColor(defaultWhite);
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
