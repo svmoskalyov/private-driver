@@ -62,20 +62,12 @@ export const CardItem = ({
 
         <DriverCategories categories={categories} />
 
-        {/* <DriverTopInfo
-          rating={rating}
-          price_per_hour={price_per_hour}
-          trips_made={trips_made}
-        />
-
-        <Heart isFav={isFav} /> */}
-
         <Button
           className={s.btnBookTrip}
           onClick={() => console.log('Book a trip')}
           aria-label='button book a trip'
         >
-          book a trip
+          Book a trip
         </Button>
       </div>
     </li>
