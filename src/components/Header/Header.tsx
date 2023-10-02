@@ -5,13 +5,14 @@ import s from './Header.module.scss'
 import { activeLink } from './Header.types'
 
 import { Button } from '../Button'
+import { Logo } from '../Logo'
 
 const setActive = ({ isActive }: activeLink) =>
   isActive ? `${s.navLink} ${s.activeLink}` : `${s.navLink}`
 
 export const Header = () => (
   <header className={s.header}>
-    <div>Logo</div>
+    <Logo />
 
     <nav>
       <ul>
