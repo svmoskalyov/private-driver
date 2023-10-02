@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import s from './CardItem.module.scss'
 
 import { Avatar } from '../Avatar'
@@ -6,6 +8,7 @@ import { DriverCategories } from '../DriverCategories'
 import { DriverInfo } from '../DriverInfo'
 import { DriverTopInfo } from '../DriverTopInfo'
 import { Heart } from '../Heart'
+
 import { Reviewer } from '../Reviewer'
 
 export const CardItem = ({
@@ -24,6 +27,12 @@ export const CardItem = ({
   experience,
   isFav,
 }: DriverFav) => {
+  const [showMore, setShowMore] = useState<boolean>(false)
+
+  const toggleShowMore = () => {
+    setShowMore(!showMore)
+  }
+
   return (
     <li key={driverId} className={s.cardItem}>
       <Avatar src={driver_avatar} />
@@ -49,26 +58,34 @@ export const CardItem = ({
           skills={skills}
         />
 
-        <Button
-          className={s.btnMore}
-          onClick={() => console.log('Read more')}
-          aria-label='button read more'
-        >
-          Read more
-        </Button>
+        {!showMore && (
+          <Button
+            className={s.btnMore}
+            onClick={toggleShowMore}
+            aria-label='button read more'
+          >
+            Read more
+          </Button>
+        )}
 
-        <p className={s.experience}>{experience}</p>
-        <Reviewer reviews={reviews} />
+        {showMore && (
+          <>
+            <p className={s.experience}>{experience}</p>
+            <Reviewer reviews={reviews} />
+          </>
+        )}
 
         <DriverCategories categories={categories} />
 
-        <Button
-          className={s.btnBookTrip}
-          onClick={() => console.log('Book a trip')}
-          aria-label='button book a trip'
-        >
-          Book a trip
-        </Button>
+        {showMore && (
+          <Button
+            className={s.btnBookTrip}
+            onClick={() => console.log('Book a trip')}
+            aria-label='button book a trip'
+          >
+            Book a trip
+          </Button>
+        )}
       </div>
     </li>
   )
