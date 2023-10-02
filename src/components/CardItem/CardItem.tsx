@@ -2,6 +2,9 @@ import { useState } from 'react'
 
 import s from './CardItem.module.scss'
 
+import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks'
+import { selectShowModal } from '../../redux/drivers/driversSelectors'
+import { toggleModal } from '../../redux/drivers/driversSlice'
 import { Avatar } from '../Avatar'
 import { Button } from '../Button'
 import { DriverCategories } from '../DriverCategories'
@@ -28,15 +31,12 @@ export const CardItem = ({
   experience,
   isFav,
 }: DriverFav) => {
+  const dispatch = useAppDispatch()
+  const showModal = useAppSelector<boolean>(selectShowModal)
   const [showMore, setShowMore] = useState<boolean>(false)
-  const [showModal, setShowModal] = useState<boolean>(false)
 
   const toggleShowMore = () => {
     setShowMore(!showMore)
-  }
-
-  const toggleModal = () => {
-    setShowModal(!showModal)
   }
 
   return (
@@ -87,7 +87,7 @@ export const CardItem = ({
           {showMore && (
             <Button
               className={s.btnBookTrip}
-              onClick={toggleModal}
+              onClick={() => dispatch(toggleModal())}
               aria-label='button book a trip'
             >
               Book a trip
@@ -97,8 +97,8 @@ export const CardItem = ({
       </li>
 
       {showModal && (
-        <Modal onClose={toggleModal}>
-          <div>Book trial lesson</div>
+        <Modal>
+          <div>Book a trip</div>
         </Modal>
       )}
     </>

@@ -7,6 +7,7 @@ type DriversState = {
   favorites: DriverFav[]
   totalDrivers: number
   startId: number
+  showModal: boolean
   isLoading: boolean
   error: string | null
 }
@@ -16,6 +17,7 @@ const initialState: DriversState = {
   favorites: [],
   totalDrivers: 0,
   startId: 1201,
+  showModal: false,
   isLoading: false,
   error: null,
 }
@@ -24,6 +26,9 @@ const driversSlice = createSlice({
   name: 'drivers',
   initialState,
   reducers: {
+    toggleModal(state) {
+      state.showModal = !state.showModal
+    },
     setFavorite(state, { payload }: PayloadAction<Driver[]>) {
       console.log('🚀 ~ setFavorite ~ payload:', payload)
 
@@ -69,5 +74,5 @@ const driversSlice = createSlice({
   },
 })
 
-export const { setFavorite } = driversSlice.actions
+export const { setFavorite, toggleModal } = driversSlice.actions
 export default driversSlice.reducer
