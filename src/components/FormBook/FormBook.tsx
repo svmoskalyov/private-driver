@@ -1,4 +1,6 @@
+import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm, SubmitHandler } from 'react-hook-form'
+import * as yup from 'yup'
 
 import s from './FormBook.module.scss'
 
@@ -6,7 +8,40 @@ type FormValues = {
   name: string
   email: string
   phone: string
+  planning: string
 }
+
+const schema = yup.object().shape({
+  name: yup
+    .string()
+    .min(2, 'Username must be at least 2 characters')
+    .max(32, 'Username must be less than or equal to 32 characters')
+    .matches(
+      /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/,
+      'Name must contain letters, numbers and space',
+    )
+    .required('Username is a required field'),
+  email: yup
+    .string()
+    .email('Email must be a valid email')
+    .min(3, 'Email must be at least 3 characters')
+    .max(64, 'Email must be less than or equal to 64 characters')
+    .matches(
+      /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
+      'Email address must be a valid address',
+    )
+    .required('Email is a required field'),
+  phone: yup
+    .string()
+    .min(8, 'Phone must be at least 8 characters')
+    .max(64, 'Phone must be less than or equal to 64 characters')
+    .matches(
+      /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/,
+      'Invalid phone number format',
+    )
+    .required('Phone is a required field'),
+  planning: yup.string().required('Choice is a required field'),
+})
 
 export const FormBook = () => {
   const {
@@ -14,7 +49,7 @@ export const FormBook = () => {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<FormValues>()
+  } = useForm<FormValues>({ resolver: yupResolver(schema) })
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     console.log(data)
     reset()
@@ -22,114 +57,47 @@ export const FormBook = () => {
 
   return (
     <div className={s.formBook}>
-      <h2>Book a trip</h2>
+      <h2 className={s.titleBook}>Book a trip</h2>
+
+      <div>
+        <p>What kind of trip are you planning?</p>
+        <label>
+          <input {...register('planning')} type='radio' value='business' />
+          business
+        </label>
+
+        <label>
+          <input {...register('planning')} type='radio' value='free' />
+          free
+        </label>
+
+        <label>
+          <input {...register('planning')} type='radio' value='party' />
+          party
+        </label>
+        {errors.planning && (
+          <p style={{ color: 'red' }}>{errors.planning.message}</p>
+        )}
+      </div>
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>
-          Full Name
-          <input
-            type='text'
-            {...register('name', {
-              required: 'Name is required',
-              validate: {
-                maxLength: (v) =>
-                  v.length >= 2 ||
-                  'The username should have at least 2 characters',
-                matchPattern: (v) =>
-                  /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/.test(
-                    v,
-                  ) || 'Name must contain only letters, numbers and space',
-              },
-              // required: true,
-              // maxLength: 30,
-              // pattern: /^[a-zA-Z0-9 ]+$/,
-            })}
-            placeholder='Your name'
-          />
+          <span>Full Name</span>
+          <input {...register('name')} type='text' />
         </label>
-
-        {errors?.name?.message && (
-          <small style={{ color: 'red' }}>{errors.name.message}</small>
-        )}
-
-        {/* {errors.name && errors.name.type === 'required' && (
-          <small style={{ color: 'red' }}>Name is required</small>
-        )}
-        {errors.name && errors.name.type === 'maxLength' && (
-          <small>Max length exceeded</small>
-        )}
-        {errors.name?.type === 'pattern' && (
-          <small>Name must contain only letters, numbers and space</small>
-        )} */}
+        {errors.name && <p style={{ color: 'red' }}>{errors.name.message}</p>}
 
         <label>
-          Email
-          <input
-            type='email'
-            {...register('email', {
-              required: 'Email is required',
-              validate: {
-                maxLength: (v) =>
-                  v.length <= 50 ||
-                  'The email should have at most 50 characters',
-                matchPattern: (v) =>
-                  /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
-                  'Email address must be a valid address',
-              },
-              // required: true,
-              // maxLength: 50,
-              // pattern: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
-            })}
-            placeholder='email'
-          />
+          <span>Email</span>
+          <input {...register('email')} type='email' />
         </label>
-
-        {errors?.email?.message && (
-          <small style={{ color: 'red' }}>{errors.email.message}</small>
-        )}
-
-        {/* {errors?.email?.type === 'required' && (
-          <small role='alert'>Email is required</small>
-        )}
-        {errors.name && errors.name.type === 'maxLength' && (
-          <small>The email should have at most 50 characters</small>
-        )}
-        {errors?.email?.type === 'pattern' && (
-          <small>Email address must be a valid address</small>
-        )} */}
+        {errors.email && <p style={{ color: 'red' }}>{errors.email.message}</p>}
 
         <label>
-          Phone Number
-          <input
-            type='tel'
-            {...register('phone', {
-              required: 'Phone is required',
-              validate: {
-                maxLength: (v) =>
-                  v.length === 9 ||
-                  'The email should have at most 50 characters',
-                matchPattern: (v) =>
-                  /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/.test(
-                    v,
-                  ) || 'Email address must be a valid address',
-              },
-              // required: true,
-              // pattern: /\d{11}/,
-            })}
-            placeholder='000-00-00'
-          />
+          <span>Phone Number</span>
+          <input {...register('phone')} type='tel' />
         </label>
-
-        {errors?.phone?.message && (
-          <small style={{ color: 'red' }}>{errors.phone.message}</small>
-        )}
-
-        {/* {errors?.phone?.type === 'required' && (
-          <div>Phone number is required.</div>
-        )}
-        {errors?.phone?.type === 'pattern' && (
-          <div>Phone number should contain 11 digits.</div>
-        )} */}
+        {errors.phone && <p style={{ color: 'red' }}>{errors.phone.message}</p>}
 
         <button>Send</button>
       </form>
