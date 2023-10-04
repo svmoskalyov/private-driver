@@ -22,7 +22,7 @@ export const FormBook = () => {
 
   return (
     <div className={s.formBook}>
-      <h2 className={s.titleBook}>Book a trip</h2>
+      <h2 className={s.title}>Book a trip</h2>
 
       <div>
         <p>What kind of trip are you planning?</p>
@@ -78,7 +78,7 @@ export const FormBook = () => {
           </p>
         )}
 
-        <button>Send</button>
+        <button>Book</button>
       </form>
     </div>
   )
