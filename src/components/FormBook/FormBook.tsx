@@ -1,47 +1,10 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm, SubmitHandler } from 'react-hook-form'
-import * as yup from 'yup'
 
 import s from './FormBook.module.scss'
+import { BookForm } from './FormBook.types'
 
-type FormValues = {
-  name: string
-  email: string
-  phone: string
-  planning: string
-}
-
-const schema = yup.object().shape({
-  name: yup
-    .string()
-    .min(2, 'Username must be at least 2 characters')
-    .max(32, 'Username must be less than or equal to 32 characters')
-    .matches(
-      /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/,
-      'Name must contain letters, numbers and space',
-    )
-    .required('Username is a required field'),
-  email: yup
-    .string()
-    .email('Email must be a valid email')
-    .min(3, 'Email must be at least 3 characters')
-    .max(64, 'Email must be less than or equal to 64 characters')
-    .matches(
-      /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
-      'Email address must be a valid address',
-    )
-    .required('Email is a required field'),
-  phone: yup
-    .string()
-    .min(8, 'Phone must be at least 8 characters')
-    .max(64, 'Phone must be less than or equal to 64 characters')
-    .matches(
-      /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/,
-      'Invalid phone number format',
-    )
-    .required('Phone is a required field'),
-  planning: yup.string().required('Choice is a required field'),
-})
+import { bookSchema } from '../../utils/yupSchemas'
 
 export const FormBook = () => {
   const {
@@ -49,8 +12,10 @@ export const FormBook = () => {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<FormValues>({ resolver: yupResolver(schema) })
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
+  } = useForm<BookForm>({ resolver: yupResolver(bookSchema) })
+
+  const onSubmit: SubmitHandler<BookForm> = (data) => {
+    // eslint-disable-next-line no-console
     console.log(data)
     reset()
   }
@@ -76,7 +41,9 @@ export const FormBook = () => {
           party
         </label>
         {errors.planning && (
-          <p style={{ color: 'red' }}>{errors.planning.message}</p>
+          <p style={{ color: 'red', fontSize: '12px' }}>
+            {errors.planning.message}
+          </p>
         )}
       </div>
 
@@ -85,19 +52,31 @@ export const FormBook = () => {
           <span>Full Name</span>
           <input {...register('name')} type='text' />
         </label>
-        {errors.name && <p style={{ color: 'red' }}>{errors.name.message}</p>}
+        {errors.name && (
+          <p style={{ color: 'red', fontSize: '12px' }}>
+            {errors.name.message}
+          </p>
+        )}
 
         <label>
           <span>Email</span>
           <input {...register('email')} type='email' />
         </label>
-        {errors.email && <p style={{ color: 'red' }}>{errors.email.message}</p>}
+        {errors.email && (
+          <p style={{ color: 'red', fontSize: '12px' }}>
+            {errors.email.message}
+          </p>
+        )}
 
         <label>
           <span>Phone Number</span>
           <input {...register('phone')} type='tel' />
         </label>
-        {errors.phone && <p style={{ color: 'red' }}>{errors.phone.message}</p>}
+        {errors.phone && (
+          <p style={{ color: 'red', fontSize: '12px' }}>
+            {errors.phone.message}
+          </p>
+        )}
 
         <button>Send</button>
       </form>
