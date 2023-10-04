@@ -1,15 +1,6 @@
 import * as yup from 'yup'
 
-export const registerSchema = yup.object().shape({
-  name: yup
-    .string()
-    .min(2, 'Username must be at least 2 characters')
-    .max(32, 'Username must be less than or equal to 32 characters')
-    .matches(
-      /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/,
-      'Name must contain letters and space',
-    )
-    .required('Username is a required field'),
+export const loginSchema = yup.object().shape({
   email: yup
     .string()
     .email('Email must be a valid email')
@@ -38,26 +29,16 @@ export const registerSchema = yup.object().shape({
     .required('Password is a required field'),
 })
 
-export const loginSchema = yup.object().shape({
+export const registerSchema = loginSchema.shape({
   name: yup
     .string()
     .min(2, 'Username must be at least 2 characters')
     .max(32, 'Username must be less than or equal to 32 characters')
     .matches(
       /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/,
-      'Name must contain letters, numbers and space',
+      'Name must contain letters and space',
     )
     .required('Username is a required field'),
-  email: yup
-    .string()
-    .email('Email must be a valid email')
-    .min(3, 'Email must be at least 3 characters')
-    .max(64, 'Email must be less than or equal to 64 characters')
-    .matches(
-      /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
-      'Email address must be a valid address',
-    )
-    .required('Email is a required field'),
 })
 
 export const bookSchema = yup.object().shape({
