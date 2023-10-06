@@ -6,28 +6,24 @@ import { IoClose } from 'react-icons/io5'
 import s from './Modal.module.scss'
 import { Props } from './Modal.types'
 
-import { useAppDispatch } from '../../hooks/reduxHooks'
-import { toggleModal } from '../../redux/drivers/driversSlice'
 import { Button } from '../Button'
 
 const modalRoot = document.querySelector('#modal-root') as HTMLElement
 
-export const Modal = ({ children }: Props) => {
-  const dispatch = useAppDispatch()
-
+export const Modal = ({ children, onClose }: Props) => {
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.currentTarget === e.target) {
-      dispatch(toggleModal())
+      onClose()
     }
   }
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (e.code === 'Escape') {
-        dispatch(toggleModal())
+        onClose()
       }
     },
-    [dispatch],
+    [onClose],
   )
 
   useEffect(() => {
@@ -47,7 +43,7 @@ export const Modal = ({ children }: Props) => {
         {children}
         <Button
           className={s.btnModalCloseWrapper}
-          onClick={() => dispatch(toggleModal())}
+          onClick={onClose}
           aria-label='button modal close'
         >
           <IoClose className={s.btnModalClose} />

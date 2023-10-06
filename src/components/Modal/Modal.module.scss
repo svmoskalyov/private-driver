@@ -10,13 +10,14 @@
   justify-content: center;
   align-items: center;
   background-color: getColor(muted);
+  backdrop-filter: blur(4px);
   overflow-y: auto;
   z-index: 1200;
 }
 
 .modalWrapper {
   position: relative;
-  padding: 20px;
+  padding: 64px;
   border-radius: 30px;
   background: getColor(defaultWhite);
 }
