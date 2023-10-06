@@ -2,50 +2,66 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm, SubmitHandler } from 'react-hook-form'
 
 import s from './FormLogin.module.scss'
-import { LoginForm } from './FormLogin.types'
+import { LoginForm, Props } from './FormLogin.types'
 
 import { loginSchema } from '../../utils/yupSchemas'
+import { Button } from '../Button'
 
-export const FormLogin = () => {
+export const FormLogin = ({ onClose }: Props) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm<LoginForm>({ resolver: yupResolver(loginSchema) })
 
   const onSubmit: SubmitHandler<LoginForm> = (data) => {
     // eslint-disable-next-line no-console
     console.log(data)
-    reset()
+    onClose()
   }
 
   return (
     <div className={s.formLogin}>
       <h2 className={s.title}>Log In</h2>
+      <p className={s.text}>
+        Welcome back! Please enter your credentials to access your account and
+        continue your search for a driver.
+      </p>
 
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label>
-          <span>Email</span>
-          <input {...register('email')} type='email' />
-        </label>
-        {errors.email && (
-          <p style={{ color: 'red', fontSize: '12px' }}>
-            {errors.email.message}
-          </p>
-        )}
+      <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
+        <ul className={s.formList}>
+          <li className={s.formItem}>
+            <label className={s.formLabel}>
+              <input
+                className={s.formField}
+                {...register('email')}
+                type='email'
+                placeholder='Email'
+              />
+            </label>
+            {errors.email && (
+              <p className={'errorForm'}>{errors.email.message}</p>
+            )}
+          </li>
 
-        <label>
-          <span>Password</span>
-          <input {...register('password')} type='password' />
-        </label>
-        {errors.password && (
-          <p style={{ color: 'red', fontSize: '12px' }}>
-            {errors.password.message}
-          </p>
-        )}
+          <li className={s.formItem}>
+            <label className={s.formLabel}>
+              <input
+                className={s.formField}
+                {...register('password')}
+                type='password'
+                placeholder='Password'
+              />
+            </label>
+            {errors.password && (
+              <p className={'errorForm'}>{errors.password.message}</p>
+            )}
+          </li>
+        </ul>
 
-        <button>Log In</button>
+        <Button type='submit' className={s.btnLogin} aria-label='button login'>
+          Log In
+        </Button>
       </form>
     </div>
   )
