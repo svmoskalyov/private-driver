@@ -24,3 +24,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-synthesis: none;
 }
+
+.errorForm {
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  padding-left: 20px;
+  color: getColor(error);
+  font-size: getFontSize(smal);
+}
