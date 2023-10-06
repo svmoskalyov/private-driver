@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom'
 import s from './Header.module.scss'
 import { activeLink } from './Header.types'
 
-import { Button } from '../Button'
 import { Logo } from '../Logo'
 
 const setActive = ({ isActive }: activeLink) =>
@@ -14,8 +13,8 @@ export const Header = () => (
   <header className={s.header}>
     <Logo />
 
-    <nav>
-      <ul>
+    <nav className={s.headerNav}>
+      <ul className={s.navList}>
         <li>
           <NavLink to='/' className={setActive}>
             Home
@@ -34,22 +33,18 @@ export const Header = () => (
       </ul>
     </nav>
 
-    <div className={s.btnBox}>
-      <Button
-        className={s.btnLogin}
-        onClick={() => console.log('Log in')}
-        aria-label='button Log in'
-      >
-        <FiLogIn className={s.icon} />
-        Log in
-      </Button>
-      <Button
-        className={s.btnRegistre}
-        onClick={() => console.log('Registration')}
-        aria-label='button Registration'
-      >
-        Registration
-      </Button>
-    </div>
+    <ul className={s.authBox}>
+      <li>
+        <NavLink to='login' className={s.authLogin}>
+          <FiLogIn className={s.icon} />
+          Log In
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to='registration' className={s.authRegistration}>
+          Registration
+        </NavLink>
+      </li>
+    </ul>
   </header>
 )
