@@ -32,7 +32,7 @@
   gap: 18px;
 }
 
-.formItem {
+.formLabel {
   position: relative;
 }
 
@@ -52,6 +52,15 @@
   color: #121417;
   font-size: 16px;
   line-height: 22px;
+}
+
+.eye {
+  position: absolute;
+  top: 0;
+  right: 18px;
+  width: 20px;
+  color: #121417;
+  cursor: pointer;
 }
 
 .btnLogin {

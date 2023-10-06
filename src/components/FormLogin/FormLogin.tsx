@@ -1,5 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup'
+import { useState } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
+import { FiEye, FiEyeOff } from 'react-icons/fi'
 
 import s from './FormLogin.module.scss'
 import { LoginForm, Props } from './FormLogin.types'
@@ -13,6 +15,11 @@ export const FormLogin = ({ onClose }: Props) => {
     handleSubmit,
     formState: { errors },
   } = useForm<LoginForm>({ resolver: yupResolver(loginSchema) })
+  const [passwordShown, setPasswordShown] = useState<boolean>(false)
+
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown)
+  }
 
   const onSubmit: SubmitHandler<LoginForm> = (data) => {
     // eslint-disable-next-line no-console
@@ -49,9 +56,14 @@ export const FormLogin = ({ onClose }: Props) => {
               <input
                 className={s.formField}
                 {...register('password')}
-                type='password'
+                type={passwordShown ? 'text' : 'password'}
                 placeholder='Password'
               />
+              {passwordShown ? (
+                <FiEye className={s.eye} onClick={togglePassword} />
+              ) : (
+                <FiEyeOff className={s.eye} onClick={togglePassword} />
+              )}
             </label>
             {errors.password && (
               <p className={'errorForm'}>{errors.password.message}</p>
