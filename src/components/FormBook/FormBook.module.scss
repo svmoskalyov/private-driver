@@ -1,3 +1,166 @@
-.formBook {
+@import '../../sass/utils/functions';
 
+.formBook {
+  width: 472px;
+  background: getColor(defaultWhite);
+}
+
+.title {
+  margin-bottom: 20px;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 48px;
+  letter-spacing: -0.8px;
+}
+
+.text {
+  margin-bottom: 20px;
+  color: rgba(18, 20, 23, 0.8);
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.driver {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.driverBox {
+  margin-left: 14px;
+}
+
+.driverText {
+  margin-bottom: 4px;
+  color: #8a8a89;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.driverName {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.planningTitle {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+}
+
+.planningList {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.planningItem {
+  height: 24px;
+}
+
+.planningLabel {
+  font-size: 16px;
+  line-height: 22px;
+  display: grid;
+  grid-template-columns: 20px auto;
+  align-items: center;
+  gap: 8px;
+}
+
+input[type='radio'] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: getColor(defaultWhite);
+  margin: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(18, 20, 23, 0.2);
+  border-radius: 50%;
+  transform: translateY(-1px);
+  display: grid;
+  place-content: center;
+}
+
+input[type='radio']:checked {
+  border: 2px solid #41adff;
+}
+
+input[type='radio']::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 14px 14px #41adff;
+}
+
+input[type='radio']:checked::before {
+  transform: scale(1);
+}
+
+input[type='radio']:focus {
+  outline: 1px solid #00c8ff;
+  outline-offset: 2px;
+}
+
+.formList {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.formItem{
+position: relative;
+}
+
+.formLabel {
+  position: relative;
+}
+
+.formName {
+  position: absolute;
+  top: 0;
+  left: 18px;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.formField {
+  padding: 16px 18px;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(18, 20, 23, 0.1);
+  outline: none;
+}
+
+.formField:focus {
+  border-color: #00c8ff;
+}
+
+.formField::placeholder {
+  color: #121417;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.btnBook {
+  padding: 16px;
+  border-radius: 12px;
+  background: #41adff;
+  outline: none;
+}
+
+.btnBook:hover,
+.btnBook:focus {
+  background: #00c8ff;
 }

@@ -12,7 +12,11 @@ export const Reviewer = ({ reviews }: Props) => {
         <li className={s.reviewerItem} key={i}>
           <ul className={s.listBox}>
             <li>
-              <Avatar src={e.reviewer_avatar} name='reviewer' />
+              <Avatar
+                src={e.reviewer_avatar}
+                alt='avatar reviewer'
+                name='reviewer'
+              />
             </li>
             <li>
               <ul>
