@@ -2,14 +2,12 @@ import { useState } from 'react'
 
 import s from './CardItem.module.scss'
 
-import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks'
-import { selectShowModal } from '../../redux/drivers/driversSelectors'
-import { toggleModal } from '../../redux/drivers/driversSlice'
 import { Avatar } from '../Avatar'
 import { Button } from '../Button'
 import { DriverCategories } from '../DriverCategories'
 import { DriverInfo } from '../DriverInfo'
 import { DriverTopInfo } from '../DriverTopInfo'
+import { FormBook } from '../FormBook'
 import { Heart } from '../Heart'
 
 import { Modal } from '../Modal'
@@ -31,18 +29,21 @@ export const CardItem = ({
   experience,
   isFav,
 }: DriverFav) => {
-  const dispatch = useAppDispatch()
-  const showModal = useAppSelector<boolean>(selectShowModal)
   const [showMore, setShowMore] = useState<boolean>(false)
+  const [showModal, setShowModal] = useState<boolean>(false)
 
   const toggleShowMore = () => {
     setShowMore(!showMore)
   }
 
+  const toggleModal = () => {
+    setShowModal(!showModal)
+  }
+
   return (
     <>
       <li key={driverId} className={s.cardItem}>
-        <Avatar src={driver_avatar} />
+        <Avatar src={driver_avatar} alt='avatar driver' />
 
         <div>
           <div className={s.topWrapper}>
@@ -87,7 +88,7 @@ export const CardItem = ({
           {showMore && (
             <Button
               className={s.btnBookTrip}
-              onClick={() => dispatch(toggleModal())}
+              onClick={toggleModal}
               aria-label='button book a trip'
             >
               Book a trip
@@ -97,8 +98,13 @@ export const CardItem = ({
       </li>
 
       {showModal && (
-        <Modal>
-          <div>Book a trip</div>
+        <Modal onClose={toggleModal}>
+          <FormBook
+            driver_avatar={driver_avatar}
+            name={name}
+            surname={surname}
+            onClose={toggleModal}
+          />
         </Modal>
       )}
     </>
