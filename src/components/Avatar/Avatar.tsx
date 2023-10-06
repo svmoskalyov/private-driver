@@ -1,7 +1,7 @@
 import s from './Avatar.module.scss'
 import { Props } from './Avatar.types'
 
-export const Avatar = ({ src, name }: Props) =>
+export const Avatar = ({ src, alt, name }: Props) =>
   name === 'reviewer' ? (
     <img
       className={`${s.avatar} ${s.avatarReviewer}`}
@@ -9,7 +9,7 @@ export const Avatar = ({ src, name }: Props) =>
       width={44}
       height={44}
       src={src}
-      alt={'avatar reviewer'}
+      alt={alt}
     />
   ) : (
     <div className={s.avatarDriverWrapper}>
@@ -19,7 +19,7 @@ export const Avatar = ({ src, name }: Props) =>
         width={96}
         height={96}
         src={src}
-        alt={'avatar driver'}
+        alt={alt}
       />
     </div>
   )
