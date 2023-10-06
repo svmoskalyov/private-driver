@@ -12,6 +12,7 @@ import { Layout } from './components/Layout'
 const Home = React.lazy(() => import('./pages/Home'))
 const Drivers = React.lazy(() => import('./pages/Drivers'))
 const Favorites = React.lazy(() => import('./pages/Favorites'))
+const Login = React.lazy(() => import('./pages/Login'))
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,6 +20,8 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route path='drivers' element={<Drivers />} />
       <Route path='favorites' element={<Favorites />} />
+      <Route path='login' element={<Login />} />
+      {/* <Route path='registration' element={<Registration />} /> */}
       <Route path='*' element={<Navigate to='/' replace />} />
     </Route>,
   ),
