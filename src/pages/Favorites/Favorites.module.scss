@@ -1,3 +1,10 @@
-.favorites {
+@import '../../sass/utils/functions';
 
+.notFavCar {
+  padding: 30px;
+  text-align: center;
+  font-size: getFontSize(norm);
+  font-weight: getFontWeight(medium);
+  line-height: 24px;
+  color: getColor(secondory);
 }
