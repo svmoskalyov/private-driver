@@ -13,6 +13,7 @@ const Home = React.lazy(() => import('./pages/Home'))
 const Drivers = React.lazy(() => import('./pages/Drivers'))
 const Favorites = React.lazy(() => import('./pages/Favorites'))
 const Login = React.lazy(() => import('./pages/Login'))
+const Registration = React.lazy(() => import('./pages/Registration'))
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -21,7 +22,7 @@ const router = createBrowserRouter(
       <Route path='drivers' element={<Drivers />} />
       <Route path='favorites' element={<Favorites />} />
       <Route path='login' element={<Login />} />
-      {/* <Route path='registration' element={<Registration />} /> */}
+      <Route path='registration' element={<Registration />} />
       <Route path='*' element={<Navigate to='/' replace />} />
     </Route>,
   ),
