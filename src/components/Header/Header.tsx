@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 import s from './Header.module.scss'
 import { activeLink } from './Header.types'
 
+import { Loader } from '../Loader'
 import { Logo } from '../Logo'
 
 const setActive = ({ isActive }: activeLink) =>
@@ -46,5 +47,7 @@ export const Header = () => (
         </NavLink>
       </li>
     </ul>
+
+    <Loader />
   </header>
 )

@@ -42,7 +42,7 @@ const Drivers = () => {
   }, [dispatch, catalog.length, startId])
 
   return (
-    <>
+    <div className={s.drivers}>
       <div>Filters</div>
       <CardList catalog={catalog} />
 
@@ -55,7 +55,7 @@ const Drivers = () => {
           Load more
         </Button>
       )}
-    </>
+    </div>
   )
 }
 

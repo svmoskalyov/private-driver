@@ -1,12 +1,6 @@
-// .loader {
-//   height: 4px;
-//   background: linear-gradient(90deg, #e70f0f00, #00c8ff) left -100px top 0/200px 4px no-repeat
-//     #eef6f8;
-//   animation: ct2 1s infinite linear;
-// }
-
-// @keyframes ct2 {
-//   100% {
-//     background-position: right -100px top 0;
-//   }
-// }
+.loader {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
