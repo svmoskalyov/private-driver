@@ -24,17 +24,16 @@ const driversSlice = createSlice({
   name: 'drivers',
   initialState,
   reducers: {
-    setFavorite(state, { payload }: PayloadAction<Driver[]>) {
-      console.log('🚀 ~ setFavorite ~ payload:', payload)
+    setFavorite(state, { payload }: PayloadAction<DriverFav>) {
+      state.items = state.items.map((el) =>
+        el.driverId !== payload.driverId ? el : { ...payload },
+      )
 
-      //   state.items = state.items.map((el) =>
-      //     el.driverId !== payload.driverId ? el : { ...payload },
-      //   )
-      //   payload.isFav
-      //     ? state.favorites.push(payload)
-      //     : (state.favorites = state.favorites.filter(
-      //         (el) => el.driverId !== payload.driverId,
-      //       ))
+      payload.isFav
+        ? state.favorites.push(payload)
+        : (state.favorites = state.favorites.filter(
+            (el) => el.driverId !== payload.driverId,
+          ))
     },
   },
   extraReducers: (builder) => {
