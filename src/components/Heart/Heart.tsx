@@ -1,9 +1,14 @@
 import { FiHeart } from 'react-icons/fi'
 
 import s from './Heart.module.scss'
-import { Props } from './Heart.types'
 
-export const Heart = ({ isFav }: Props) => {
+import { useAppDispatch } from '../../hooks/reduxHooks'
+import { setFavorite } from '../../redux/drivers/driversSlice'
+
+export const Heart = (el: DriverFav) => {
+  const { isFav } = el
+  const dispatch = useAppDispatch()
+
   return (
     <label className={s.chekboxHeart}>
       <input
@@ -11,7 +16,7 @@ export const Heart = ({ isFav }: Props) => {
         type='checkbox'
         name='status'
         checked={isFav}
-        onChange={() => console.log('checked')}
+        onChange={() => dispatch(setFavorite({ ...el, isFav: !isFav }))}
       />
       <FiHeart className={s.heart} />
     </label>
