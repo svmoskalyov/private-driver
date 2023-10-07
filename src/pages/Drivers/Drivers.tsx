@@ -16,6 +16,7 @@ import {
   selectStartId,
   selectTotalDrivers,
 } from '../../redux/drivers/driversSelectors'
+import { Button } from '../../components/Button'
 
 const Drivers = () => {
   const dispatch = useAppDispatch()
@@ -41,14 +42,21 @@ const Drivers = () => {
   }, [dispatch, catalog.length, startId])
 
   return (
-    <div className={s.drivers}>
+    <>
+      {loading && !err}
       <div>Filters</div>
       <CardList catalog={catalog} />
-      <button type='button' onClick={onClickLoadMore}>
-        get drivers
-      </button>{' '}
-      total:{totalDrivers} catalog: {catalog.length}
-    </div>
+
+      {catalog.length < totalDrivers && (
+        <Button
+          className={s.btnLoadMore}
+          type='button'
+          onClick={onClickLoadMore}
+        >
+          Load more
+        </Button>
+      )}
+    </>
   )
 }
 
