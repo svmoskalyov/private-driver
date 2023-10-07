@@ -13,22 +13,23 @@ import { Heart } from '../Heart'
 import { Modal } from '../Modal'
 import { Reviewer } from '../Reviewer'
 
-export const CardItem = ({
-  driverId,
-  name,
-  surname,
-  languages,
-  categories,
-  rating,
-  reviews,
-  price_per_hour,
-  trips_made,
-  driver_avatar,
-  driver_info,
-  skills,
-  experience,
-  isFav,
-}: DriverFav) => {
+export const CardItem = (el: DriverFav) => {
+  const {
+    driverId,
+    name,
+    surname,
+    languages,
+    categories,
+    rating,
+    reviews,
+    price_per_hour,
+    trips_made,
+    driver_avatar,
+    driver_info,
+    skills,
+    experience,
+  } = el
+
   const [showMore, setShowMore] = useState<boolean>(false)
   const [showModal, setShowModal] = useState<boolean>(false)
 
@@ -53,7 +54,7 @@ export const CardItem = ({
               trips_made={trips_made}
             />
 
-            <Heart isFav={isFav} />
+            <Heart {...el} />
           </div>
 
           <h2 className={s.driverName}>
