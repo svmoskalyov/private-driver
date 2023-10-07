@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 
 import s from './Drivers.module.scss'
 
+import { Button } from '../../components/Button'
 import { CardList } from '../../components/CardList'
 
 import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks'
@@ -16,7 +17,6 @@ import {
   selectStartId,
   selectTotalDrivers,
 } from '../../redux/drivers/driversSelectors'
-import { Button } from '../../components/Button'
 
 const Drivers = () => {
   const dispatch = useAppDispatch()
@@ -43,7 +43,6 @@ const Drivers = () => {
 
   return (
     <>
-      {loading && !err}
       <div>Filters</div>
       <CardList catalog={catalog} />
 
