@@ -3,3 +3,7 @@ export type RegistrationForm = {
   email: string
   password: string
 }
+
+export type Props = {
+  onClose: () => void
+}

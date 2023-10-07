@@ -1,61 +1,98 @@
 import { yupResolver } from '@hookform/resolvers/yup'
+import { useState } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
+import { FiEye, FiEyeOff } from 'react-icons/fi'
 
 import s from './FormRegistration.module.scss'
-import { RegistrationForm } from './FormRegistration.types'
+import { Props, RegistrationForm } from './FormRegistration.types'
 
 import { registerSchema } from '../../utils/yupSchemas'
+import { Button } from '../Button'
 
-export const FormRegistration = () => {
+export const FormRegistration = ({ onClose }: Props) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm<RegistrationForm>({ resolver: yupResolver(registerSchema) })
+
+  const [passwordShown, setPasswordShown] = useState<boolean>(false)
+
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown)
+  }
 
   const onSubmit: SubmitHandler<RegistrationForm> = (data) => {
     // eslint-disable-next-line no-console
     console.log(data)
-    reset()
+    onClose()
   }
 
   return (
     <div className={s.formRegistration}>
       <h2 className={s.title}>Registration</h2>
+      <p className={s.text}>
+        Thank you for your interest in our platform! In order to register, we
+        need some information. Please provide us with the following information
+      </p>
 
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label>
-          <span>Name</span>
-          <input {...register('name')} type='text' />
-        </label>
-        {errors.name && (
-          <p style={{ color: 'red', fontSize: '12px' }}>
-            {errors.name.message}
-          </p>
-        )}
+      <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
+        <ul className={s.formList}>
+          <li className={s.formItem}>
+            <label className={s.formLabel}>
+              <input
+                className={s.formField}
+                {...register('name')}
+                type='text'
+                placeholder='Name'
+              />
+            </label>
+            {errors.name && (
+              <p className={'errorForm'}>{errors.name.message}</p>
+            )}
+          </li>
 
-        <label>
-          <span>Email</span>
-          <input {...register('email')} type='email' />
-        </label>
-        {errors.email && (
-          <p style={{ color: 'red', fontSize: '12px' }}>
-            {errors.email.message}
-          </p>
-        )}
+          <li className={s.formItem}>
+            <label className={s.formLabel}>
+              <input
+                className={s.formField}
+                {...register('email')}
+                type='email'
+                placeholder='Email'
+              />
+            </label>
+            {errors.email && (
+              <p className={'errorForm'}>{errors.email.message}</p>
+            )}
+          </li>
 
-        <label>
-          <span>Password</span>
-          <input {...register('password')} type='password' />
-        </label>
-        {errors.password && (
-          <p style={{ color: 'red', fontSize: '12px' }}>
-            {errors.password.message}
-          </p>
-        )}
+          <li className={s.formItem}>
+            <label className={s.formLabel}>
+              <input
+                className={s.formField}
+                {...register('password')}
+                type={passwordShown ? 'text' : 'password'}
+                placeholder='Password'
+              />
+              {passwordShown ? (
+                <FiEye className={s.eye} onClick={togglePassword} />
+              ) : (
+                <FiEyeOff className={s.eye} onClick={togglePassword} />
+              )}
+            </label>
+            {errors.password && (
+              <p className={'errorForm'}>{errors.password.message}</p>
+            )}
+          </li>
+        </ul>
 
-        <button>Sign Up</button>
+        <Button
+          type='submit'
+          className={s.btnRegistration}
+          aria-label='button registration'
+        >
+          Sign Up
+        </Button>
       </form>
     </div>
   )

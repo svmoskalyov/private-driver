@@ -1,3 +1,76 @@
-.formRegistration {
+@import '../../sass/utils/functions';
 
+.formRegistration {
+  width: 566px;
+  background: getColor(defaultWhite);
+}
+
+.title {
+  margin-bottom: 20px;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 48px;
+  letter-spacing: -0.8px;
+}
+
+.text {
+  margin-bottom: 40px;
+  color: rgba(18, 20, 23, 0.8);
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.formList {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.formItem,
+.formLabel {
+  position: relative;
+}
+
+.formField {
+  padding: 16px 18px;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(18, 20, 23, 0.1);
+  outline: none;
+}
+
+.formField:focus {
+  border-color: #00c8ff;
+}
+
+.formField::placeholder {
+  color: #121417;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.eye {
+  position: absolute;
+  top: 0;
+  right: 18px;
+  width: 20px;
+  color: #121417;
+  cursor: pointer;
+}
+
+.btnRegistration {
+  padding: 16px;
+  background: #41adff;
+  outline: none;
+}
+
+.btnRegistration:hover,
+.btnRegistration:focus {
+  background: #00c8ff;
 }
