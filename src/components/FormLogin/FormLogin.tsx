@@ -38,13 +38,15 @@ export const FormLogin = ({ onClose }: Props) => {
       <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
         <ul className={s.formList}>
           <li className={s.formItem}>
-            <label className={s.formLabel}>
-              <input
-                className={s.formField}
-                {...register('email')}
-                type='email'
-                placeholder='Email'
-              />
+            <input
+              className={s.formInput}
+              {...register('email')}
+              type='email'
+              id='email'
+              placeholder=' '
+            />
+            <label htmlFor='email' className={s.formLabel}>
+              Email
             </label>
             {errors.email && (
               <p className={'errorForm'}>{errors.email.message}</p>
@@ -52,18 +54,20 @@ export const FormLogin = ({ onClose }: Props) => {
           </li>
 
           <li className={s.formItem}>
-            <label className={s.formLabel}>
-              <input
-                className={s.formField}
-                {...register('password')}
-                type={passwordShown ? 'text' : 'password'}
-                placeholder='Password'
-              />
-              {passwordShown ? (
-                <FiEye className={s.eye} onClick={togglePassword} />
-              ) : (
-                <FiEyeOff className={s.eye} onClick={togglePassword} />
-              )}
+            <input
+              className={s.formInput}
+              {...register('password')}
+              type={passwordShown ? 'text' : 'password'}
+              id='password'
+              placeholder=' '
+            />
+            {passwordShown ? (
+              <FiEye className={s.eye} onClick={togglePassword} />
+            ) : (
+              <FiEyeOff className={s.eye} onClick={togglePassword} />
+            )}
+            <label htmlFor='password' className={s.formLabel}>
+              Password
             </label>
             {errors.password && (
               <p className={'errorForm'}>{errors.password.message}</p>
