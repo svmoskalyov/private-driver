@@ -1,4 +1,4 @@
 export type Props = {
   label: string
-  items: string[]
+  items: string[] | number[]
 }
