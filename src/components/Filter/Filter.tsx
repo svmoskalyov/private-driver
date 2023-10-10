@@ -6,7 +6,7 @@ import { Props } from './Filter.types'
 
 export const Filter = ({ label, items }: Props) => {
   const [showDropdown, setShowDropdown] = useState<boolean>(false)
-  const [selectItem, setSelectItem] = useState<string>('')
+  const [selectItem, setSelectItem] = useState<string | number>('')
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown)
@@ -18,7 +18,7 @@ export const Filter = ({ label, items }: Props) => {
     }
   }
 
-  const itemSelection = (e: string) => {
+  const itemSelection = (e: string | number) => {
     console.log('choised --> ', e)
     setSelectItem(e)
   }
@@ -30,11 +30,11 @@ export const Filter = ({ label, items }: Props) => {
         onClick={() => toggleDropdown()}
         onBlur={(e: FocusEvent<HTMLButtonElement>) => dismissHandler(e)}
       >
-        <div>{selectItem ? selectItem : 'Select...'} </div>
+        <div>{selectItem ? selectItem : '. . .'} </div>
 
         {showDropdown && (
           <div className={s.dropdown}>
-            {items.map((e: string, i: number) => {
+            {items.map((e: string | number, i: number) => {
               return (
                 <p
                   className={
