@@ -9,6 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 22px;
 
   padding: 20px 64px;
 
@@ -75,6 +76,7 @@
 .authLogin {
   display: flex;
   align-items: center;
+  width: 70px;
 
   font-size: getFontSize(norm);
   font-weight: getFontWeight(semibold);
