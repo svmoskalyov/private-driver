@@ -15,8 +15,9 @@ button {
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 16px 18px;
-  width: 221px;
+  width: 160px;
   height: 48px;
 
   text-align: left;
@@ -44,6 +45,11 @@ button:hover {
   background-color: #41adff;
 }
 
+.icon {
+  size: 20px;
+  color: #121417;
+}
+
 .dropdown {
   position: absolute;
   top: 54px;
@@ -53,13 +59,14 @@ button:hover {
   color: #41adff;
   text-align: left;
   border-radius: 12px;
-  width: 221px;
+  width: 160px;
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
 .dropdownItem {
+  padding: 1px 8px;
   color: rgba(18, 20, 23, 0.2);
   font-size: 18px;
   font-weight: 500;
@@ -69,6 +76,7 @@ button:hover {
 .dropdownItem:hover {
   color: #fff;
   background-color: #41adff;
+  border-radius: 8px;
 }
 
 .choiced {

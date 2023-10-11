@@ -1,12 +1,17 @@
 import { FocusEvent, useState } from 'react'
+import { FiChevronDown, FiChevronUp } from 'react-icons/fi'
 
 import s from './Filter.module.scss'
 
 import { Props } from './Filter.types'
 
+import { useAppDispatch } from '../../hooks/reduxHooks'
+import { setFilter } from '../../redux/filters/filterSlice'
+
 export const Filter = ({ label, items }: Props) => {
+  const dispatch = useAppDispatch()
   const [showDropdown, setShowDropdown] = useState<boolean>(false)
-  const [selectItem, setSelectItem] = useState<string | number>('')
+  const [selectItem, setSelectItem] = useState<string>('')
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown)
@@ -18,23 +23,38 @@ export const Filter = ({ label, items }: Props) => {
     }
   }
 
-  const itemSelection = (e: string | number) => {
-    console.log('choised --> ', e)
+  const itemSelection = (e: string) => {
     setSelectItem(e)
+
+    if (label === 'languages') {
+      dispatch(setFilter({ languages: e }))
+    } else if (label === 'categories') {
+      dispatch(setFilter({ categories: e }))
+    } else {
+      dispatch(setFilter({ price: Number(e) }))
+    }
   }
 
   return (
     <div className={s.filter}>
-      <p className={s.filterLabel}>{label}</p>
+      <p className={s.filterLabel}>
+        {label.charAt(0).toUpperCase() + label.slice(1)}
+      </p>
       <button
         onClick={() => toggleDropdown()}
         onBlur={(e: FocusEvent<HTMLButtonElement>) => dismissHandler(e)}
       >
-        <div>{selectItem ? selectItem : '. . .'} </div>
+        <div>
+          {selectItem
+            ? label === 'price'
+              ? `${selectItem} $`
+              : selectItem
+            : '. . .'}
+        </div>
 
         {showDropdown && (
           <div className={s.dropdown}>
-            {items.map((e: string | number, i: number) => {
+            {items.map((e: string, i: number) => {
               return (
                 <p
                   className={
@@ -52,6 +72,12 @@ export const Filter = ({ label, items }: Props) => {
               )
             })}
           </div>
+        )}
+
+        {showDropdown ? (
+          <FiChevronUp className={s.icon} />
+        ) : (
+          <FiChevronDown className={s.icon} />
         )}
       </button>
     </div>
