@@ -5,6 +5,7 @@ import s from './Drivers.module.scss'
 import { Button } from '../../components/Button'
 import { CardList } from '../../components/CardList'
 
+import { FilterList } from '../../components/FilterList'
 import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks'
 import {
   getDrivers,
@@ -17,6 +18,7 @@ import {
   selectStartId,
   selectTotalDrivers,
 } from '../../redux/drivers/driversSelectors'
+import { selectFilterChoiced } from '../../redux/filters/filterSelectors'
 
 const Drivers = () => {
   const dispatch = useAppDispatch()
@@ -26,6 +28,7 @@ const Drivers = () => {
   const catalog = useAppSelector<DriverFav[]>(selectDrivers)
   const totalDrivers = useAppSelector<number>(selectTotalDrivers)
   const startId = useAppSelector<number>(selectStartId)
+  const selFilterChoiced = useAppSelector<boolean>(selectFilterChoiced)
 
   const onClickLoadMore = () => {
     dispatch(getDrivers(startId))
@@ -43,8 +46,8 @@ const Drivers = () => {
 
   return (
     <div className={s.drivers}>
-      <div>Filters</div>
-      <CardList catalog={catalog} />
+      {!loading && !err && catalog.length !== 0 && <FilterList />}
+      {!selFilterChoiced && <CardList catalog={catalog} />}
 
       {catalog.length < totalDrivers && (
         <Button
