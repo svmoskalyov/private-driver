@@ -12,6 +12,7 @@ import {
 import storage from 'redux-persist/lib/storage'
 
 import driversReducer from './drivers/driversSlice'
+import filtersReducer from './filters/filterSlice'
 
 const persistDriversConfig = {
   key: 'drivers',
@@ -19,14 +20,26 @@ const persistDriversConfig = {
   blacklist: ['error', 'isLoading'],
 }
 
+// const persistFilersConfig = {
+//   key: 'filters',
+//   storage,
+// }
+
 const persistedDriversReducer = persistReducer(
   persistDriversConfig,
   driversReducer,
 )
 
+// const persistedFiltersReducer = persistReducer(
+//   persistFilersConfig,
+//   filtersReducer,
+// )
+
 export const store = configureStore({
   reducer: {
     drivers: persistedDriversReducer,
+    filters: filtersReducer,
+    // filters: persistedFiltersReducer,
   },
   middleware(getDefaultMiddleware) {
     return getDefaultMiddleware({
