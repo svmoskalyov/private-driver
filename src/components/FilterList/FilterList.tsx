@@ -23,7 +23,6 @@ export const FilterList = () => {
   const selFilterPrice = useAppSelector<number>(selectFilterPrice)
   const selFilterChoiced = useAppSelector<boolean>(selectFilterChoiced)
   const [filteredDrivers, setFilteredDrivers] = useState<DriverFav[]>([])
-  console.log('🚀 ~ FilterList ~ filteredDrivers:', filteredDrivers)
 
   const filterLanguages = useCallback(
     (arr: DriverFav[]) => {
@@ -87,7 +86,7 @@ export const FilterList = () => {
         filteredDrivers.length !== 0 ? (
           <CardList catalog={filteredDrivers} />
         ) : (
-          <div className={s.notFound}>No cars matching the filter</div>
+          <div className={s.notFound}>No drivers matching the filter</div>
         )
       ) : null}
     </>
