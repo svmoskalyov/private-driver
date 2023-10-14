@@ -5,21 +5,13 @@ import s from './Filter.module.scss'
 
 import { Props } from './Filter.types'
 
-import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks'
+import { useAppDispatch } from '../../hooks/reduxHooks'
 import { setFilter } from '../../redux/filters/filterSlice'
-// import {
-//   selectFilterCategories,
-//   selectFilterLanguages,
-//   selectFilterPrice,
-// } from '../../redux/filters/filterSelectors'
 
 export const Filter = ({ label, items }: Props) => {
   const dispatch = useAppDispatch()
   const [showDropdown, setShowDropdown] = useState<boolean>(false)
   const [selectItem, setSelectItem] = useState<string>('')
-  // const selFilterLanguages = useAppSelector<string>(selectFilterLanguages)
-  // const selFilterCategories = useAppSelector<string>(selectFilterCategories)
-  // const selFilterPrice = useAppSelector<number>(selectFilterPrice)
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown)
@@ -43,16 +35,6 @@ export const Filter = ({ label, items }: Props) => {
     }
   }
 
-  // const itemDefault = () => {
-  //   if (label === 'languages') {
-  //     return selFilterLanguages
-  //   } else if (label === 'categories') {
-  //     return selFilterCategories
-  //   } else {
-  //     return selFilterPrice
-  //   }
-  // }
-
   return (
     <div className={s.filter}>
       <p className={s.filterLabel}>
@@ -69,14 +51,6 @@ export const Filter = ({ label, items }: Props) => {
               : selectItem
             : '. . .'}
         </div>
-
-        {/* <div>
-          {selectItem
-            ? label === 'price'
-              ? `${selectItem} $`
-              : selectItem
-            : itemDefault()}
-        </div> */}
 
         {showDropdown && (
           <div className={s.dropdown}>
