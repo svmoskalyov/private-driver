@@ -1,15 +1,18 @@
 import s from './DriverCategories.module.scss'
 import { Props } from './DriverCategories.types'
 
+import { useAppSelector } from '../../hooks/reduxHooks'
+import { selectFilterCategories } from '../../redux/filters/filterSelectors'
+
 export const DriverCategories = ({ categories }: Props) => {
-  const isCoiced = false
+  const selFilterCategories = useAppSelector<string>(selectFilterCategories)
 
   return (
     <ul className={s.categoriesList}>
       {categories?.map((e, i) => (
         <li
           className={
-            isCoiced
+            selFilterCategories === e
               ? `${s.categoriesItems} ${s.categoriesItemsChoice}`
               : s.categoriesItems
           }
