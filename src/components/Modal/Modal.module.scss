@@ -39,3 +39,8 @@
   width: 100%;
   height: 100%;
 }
+
+.btnModalClose:hover,
+.btnModalClose:focus {
+  color: getColor(accent);
+}
