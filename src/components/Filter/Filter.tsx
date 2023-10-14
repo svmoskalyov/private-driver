@@ -41,6 +41,7 @@ export const Filter = ({ label, items }: Props) => {
         {label.charAt(0).toUpperCase() + label.slice(1)}
       </p>
       <button
+        className={s.btnFilter}
         onClick={() => toggleDropdown()}
         onBlur={(e: FocusEvent<HTMLButtonElement>) => dismissHandler(e)}
       >
