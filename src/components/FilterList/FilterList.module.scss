@@ -1,0 +1,15 @@
+.filterList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.notFound {
+  padding: 30px;
+  text-align: center;
+  font-size: getFontSize(norm);
+  font-weight: getFontWeight(medium);
+  line-height: 24px;
+  color: getColor(secondory);
+}
