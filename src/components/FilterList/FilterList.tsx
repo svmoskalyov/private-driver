@@ -25,36 +25,55 @@ export const FilterList = () => {
   const [filteredDrivers, setFilteredDrivers] = useState<DriverFav[]>([])
   console.log('🚀 ~ FilterList ~ filteredDrivers:', filteredDrivers)
 
-  const filterItems = useCallback((arr: DriverFav[], query: string) => {
-    return arr.filter((el) => el.languages.includes(query))
-  }, [])
+  const filterLanguages = useCallback(
+    (arr: DriverFav[]) => {
+      if (selFilterLanguages === '') {
+        return arr
+      }
+
+      return arr.filter((el) => el.languages.includes(selFilterLanguages))
+    },
+    [selFilterLanguages],
+  )
+
+  const filterCategories = useCallback(
+    (arr: DriverFav[]) => {
+      if (selFilterCategories === '') {
+        return arr
+      }
+
+      return arr.filter((el) => el.categories.includes(selFilterCategories))
+    },
+    [selFilterCategories],
+  )
+
+  const filterPrice = useCallback(
+    (arr: DriverFav[]) => {
+      if (selFilterPrice === 0) {
+        return arr
+      }
+
+      return arr.filter((el) => el.price_per_hour <= selFilterPrice)
+    },
+    [selFilterPrice],
+  )
 
   useEffect(() => {
     if (!selFilterChoiced) {
       return
     }
 
-    const filteredData = filterItems(catalog, selFilterLanguages)
+    let filteredData = filterLanguages(catalog)
+    filteredData = filterCategories(filteredData)
+    filteredData = filterPrice(filteredData)
     setFilteredDrivers(filteredData)
-  }, [catalog, filterItems, selFilterChoiced, selFilterLanguages])
-
-  // const filterLanguages = useCallback(
-  //   (filteredData: DriverFav[]) => {
-  //     return filteredData.filter((driver) =>
-  //       driver.languages.includes(selFilterLanguages),
-  //     )
-  //   },
-  //   [selFilterLanguages],
-  // )
-
-  // useEffect(() => {
-  //   if (!selFilterChoiced) {
-  //     return
-  //   }
-
-  //   const filteredData = filterLanguages(catalog)
-  //   setFilteredDrivers(filteredData)
-  // }, [catalog, filterLanguages, selFilterChoiced])
+  }, [
+    catalog,
+    filterLanguages,
+    filterCategories,
+    filterPrice,
+    selFilterChoiced,
+  ])
 
   return (
     <>
@@ -71,13 +90,6 @@ export const FilterList = () => {
           <div className={s.notFound}>No cars matching the filter</div>
         )
       ) : null}
-
-      {/* {selFilterChoiced && filteredDrivers.length !== 0 && (
-        <CardList catalog={filteredDrivers} />
-      )}
-      {selFilterChoiced && filteredDrivers.length === 0 && (
-        <div className={s.notFound}>No cars matching the filter</div>
-      )} */}
     </>
   )
 }
