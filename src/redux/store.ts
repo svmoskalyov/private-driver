@@ -20,26 +20,15 @@ const persistDriversConfig = {
   blacklist: ['error', 'isLoading'],
 }
 
-// const persistFilersConfig = {
-//   key: 'filters',
-//   storage,
-// }
-
 const persistedDriversReducer = persistReducer(
   persistDriversConfig,
   driversReducer,
 )
 
-// const persistedFiltersReducer = persistReducer(
-//   persistFilersConfig,
-//   filtersReducer,
-// )
-
 export const store = configureStore({
   reducer: {
     drivers: persistedDriversReducer,
     filters: filtersReducer,
-    // filters: persistedFiltersReducer,
   },
   middleware(getDefaultMiddleware) {
     return getDefaultMiddleware({
