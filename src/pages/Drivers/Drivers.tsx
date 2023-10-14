@@ -49,7 +49,7 @@ const Drivers = () => {
       {!loading && !err && catalog.length !== 0 && <FilterList />}
       {!selFilterChoiced && <CardList catalog={catalog} />}
 
-      {catalog.length < totalDrivers && (
+      {!selFilterChoiced && catalog.length < totalDrivers && (
         <Button
           className={s.btnLoadMore}
           type='button'
