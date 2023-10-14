@@ -20,7 +20,7 @@ export const FilterList = () => {
   const catalog = useAppSelector<DriverFav[]>(selectDrivers)
   const selFilterLanguages = useAppSelector<string>(selectFilterLanguages)
   const selFilterCategories = useAppSelector<string>(selectFilterCategories)
-  const selFilterPrice = useAppSelector<number>(selectFilterPrice)
+  const selFilterPrice = useAppSelector<string>(selectFilterPrice)
   const selFilterChoiced = useAppSelector<boolean>(selectFilterChoiced)
   const [filteredDrivers, setFilteredDrivers] = useState<DriverFav[]>([])
 
@@ -48,11 +48,11 @@ export const FilterList = () => {
 
   const filterPrice = useCallback(
     (arr: DriverFav[]) => {
-      if (selFilterPrice === 0) {
+      if (selFilterPrice === '') {
         return arr
       }
 
-      return arr.filter((el) => el.price_per_hour <= selFilterPrice)
+      return arr.filter((el) => el.price_per_hour <= Number(selFilterPrice))
     },
     [selFilterPrice],
   )

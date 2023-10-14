@@ -3,19 +3,19 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 type FiltersState = {
   languages: string
   categories: string
-  price: number
+  price: string
 }
 
 type FilterChoiced = {
   languages?: string
   categories?: string
-  price?: number
+  price?: string
 }
 
 const initialState: FiltersState = {
   languages: '',
   categories: '',
-  price: 0,
+  price: '',
 }
 
 const filtersSlice = createSlice({

@@ -5,13 +5,21 @@ import s from './Filter.module.scss'
 
 import { Props } from './Filter.types'
 
-import { useAppDispatch } from '../../hooks/reduxHooks'
+import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks'
+import {
+  selectFilterCategories,
+  selectFilterLanguages,
+  selectFilterPrice,
+} from '../../redux/filters/filterSelectors'
 import { setFilter } from '../../redux/filters/filterSlice'
 
 export const Filter = ({ label, items }: Props) => {
   const dispatch = useAppDispatch()
   const [showDropdown, setShowDropdown] = useState<boolean>(false)
   const [selectItem, setSelectItem] = useState<string>('')
+  const selFilterLanguages = useAppSelector<string>(selectFilterLanguages)
+  const selFilterCategories = useAppSelector<string>(selectFilterCategories)
+  const selFilterPrice = useAppSelector<string>(selectFilterPrice)
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown)
@@ -23,6 +31,16 @@ export const Filter = ({ label, items }: Props) => {
     }
   }
 
+  const itemDefault = () => {
+    if (label === 'languages') {
+      return selFilterLanguages
+    } else if (label === 'categories') {
+      return selFilterCategories
+    } else {
+      return selFilterPrice === '' ? selFilterPrice : `${selFilterPrice} $`
+    }
+  }
+
   const itemSelection = (e: string) => {
     setSelectItem(e)
 
@@ -31,7 +49,7 @@ export const Filter = ({ label, items }: Props) => {
     } else if (label === 'categories') {
       dispatch(setFilter({ categories: e }))
     } else {
-      dispatch(setFilter({ price: Number(e) }))
+      dispatch(setFilter({ price: e }))
     }
   }
 
@@ -45,13 +63,7 @@ export const Filter = ({ label, items }: Props) => {
         onClick={() => toggleDropdown()}
         onBlur={(e: FocusEvent<HTMLButtonElement>) => dismissHandler(e)}
       >
-        <div>
-          {selectItem
-            ? label === 'price'
-              ? `${selectItem} $`
-              : selectItem
-            : '. . .'}
-        </div>
+        <div>{itemDefault()}</div>
 
         {showDropdown && (
           <div className={s.dropdown}>

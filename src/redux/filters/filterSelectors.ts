@@ -11,7 +11,7 @@ export const selectFilterPrice = (state: RootState) => state.filters.price
 export const selectFilterChoiced = createSelector(
   [selectFilterLanguages, selectFilterCategories, selectFilterPrice],
   (languages, categories, price) => {
-    if (languages === '' && categories === '' && price === 0) {
+    if (languages === '' && categories === '' && price === '') {
       return false
     }
     return true
