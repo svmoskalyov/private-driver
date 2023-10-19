@@ -36,9 +36,3 @@ declare global {
     isFav: boolean
   }
 }
-
-export type User = {
-  name?: string
-  email: string
-  password: string
-}
