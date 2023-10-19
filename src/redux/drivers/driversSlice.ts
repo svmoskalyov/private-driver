@@ -51,9 +51,19 @@ const driversSlice = createSlice({
         state.startId = state.startId + payload.length
       })
       .addMatcher(
-        (action) => action.type.endsWith('/pending'),
+        (action) =>
+          action.type.startsWith('drivers') && action.type.endsWith('/pending'),
         (state) => {
           state.isLoading = true
+        },
+      )
+      .addMatcher(
+        (action) =>
+          action.type.startsWith('drivers') &&
+          action.type.endsWith('/fulfilled'),
+        (state) => {
+          state.isLoading = false
+          state.error = null
         },
       )
       .addMatcher(
