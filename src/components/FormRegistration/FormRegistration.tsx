@@ -6,10 +6,14 @@ import { FiEye, FiEyeOff } from 'react-icons/fi'
 import s from './FormRegistration.module.scss'
 import { Props, RegistrationForm } from './FormRegistration.types'
 
+import { useAppDispatch } from '../../hooks/reduxHooks'
+import { registerUser } from '../../redux/auth/authOperations'
 import { registerSchema } from '../../utils/yupSchemas'
 import { Button } from '../Button'
 
 export const FormRegistration = ({ onClose }: Props) => {
+  const dispatch = useAppDispatch()
+
   const {
     register,
     handleSubmit,
@@ -23,8 +27,7 @@ export const FormRegistration = ({ onClose }: Props) => {
   }
 
   const onSubmit: SubmitHandler<RegistrationForm> = (data) => {
-    // eslint-disable-next-line no-console
-    console.log(data)
+    dispatch(registerUser(data))
     onClose()
   }
 
