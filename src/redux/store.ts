@@ -11,6 +11,7 @@ import {
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 
+import authReducer from './auth/authSlice'
 import driversReducer from './drivers/driversSlice'
 import filtersReducer from './filters/filterSlice'
 
@@ -29,6 +30,7 @@ export const store = configureStore({
   reducer: {
     drivers: persistedDriversReducer,
     filters: filtersReducer,
+    auth: authReducer,
   },
   middleware(getDefaultMiddleware) {
     return getDefaultMiddleware({
