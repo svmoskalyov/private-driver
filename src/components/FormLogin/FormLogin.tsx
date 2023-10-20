@@ -6,10 +6,14 @@ import { FiEye, FiEyeOff } from 'react-icons/fi'
 import s from './FormLogin.module.scss'
 import { LoginForm, Props } from './FormLogin.types'
 
+import { useAppDispatch } from '../../hooks/reduxHooks'
+import { loginUser } from '../../redux/auth/authOperations'
 import { loginSchema } from '../../utils/yupSchemas'
 import { Button } from '../Button'
 
 export const FormLogin = ({ onClose }: Props) => {
+  const dispatch = useAppDispatch()
+
   const {
     register,
     handleSubmit,
@@ -22,8 +26,7 @@ export const FormLogin = ({ onClose }: Props) => {
   }
 
   const onSubmit: SubmitHandler<LoginForm> = (data) => {
-    // eslint-disable-next-line no-console
-    console.log(data)
+    dispatch(loginUser(data))
     onClose()
   }
 
