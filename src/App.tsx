@@ -1,4 +1,4 @@
-import * as React from 'react'
+import { lazy } from 'react'
 import {
   Route,
   Navigate,
@@ -8,19 +8,23 @@ import {
 } from 'react-router-dom'
 
 import { Layout } from './components/Layout'
+import { PrivateRoute } from './components/routes/PrivateRoute'
 
-const Home = React.lazy(() => import('./pages/Home'))
-const Drivers = React.lazy(() => import('./pages/Drivers'))
-const Favorites = React.lazy(() => import('./pages/Favorites'))
-const Login = React.lazy(() => import('./pages/Login'))
-const Registration = React.lazy(() => import('./pages/Registration'))
+const Home = lazy(() => import('./pages/Home'))
+const Drivers = lazy(() => import('./pages/Drivers'))
+const Favorites = lazy(() => import('./pages/Favorites'))
+const Login = lazy(() => import('./pages/Login'))
+const Registration = lazy(() => import('./pages/Registration'))
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout />}>
       <Route index element={<Home />} />
       <Route path='drivers' element={<Drivers />} />
-      <Route path='favorites' element={<Favorites />} />
+      <Route
+        path='favorites'
+        element={<PrivateRoute component={Favorites} />}
+      />
       <Route path='login' element={<Login />} />
       <Route path='registration' element={<Registration />} />
       <Route path='*' element={<Navigate to='/' replace />} />
