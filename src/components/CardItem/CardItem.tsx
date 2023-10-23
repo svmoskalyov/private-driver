@@ -2,6 +2,8 @@ import { useState } from 'react'
 
 import s from './CardItem.module.scss'
 
+import { useAppSelector } from '../../hooks/reduxHooks'
+import { selectIsAuth } from '../../redux/auth/authSelectors'
 import { Avatar } from '../Avatar'
 import { Button } from '../Button'
 import { DriverCategories } from '../DriverCategories'
@@ -14,6 +16,8 @@ import { Modal } from '../Modal'
 import { Reviewer } from '../Reviewer'
 
 export const CardItem = (el: DriverFav) => {
+  const isAuth = useAppSelector(selectIsAuth)
+
   const {
     driverId,
     name,
@@ -54,7 +58,7 @@ export const CardItem = (el: DriverFav) => {
               trips_made={trips_made}
             />
 
-            <Heart {...el} />
+            {isAuth && <Heart {...el} />}
           </div>
 
           <h2 className={s.driverName}>
