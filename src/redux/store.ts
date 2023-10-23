@@ -15,6 +15,14 @@ import authReducer from './auth/authSlice'
 import driversReducer from './drivers/driversSlice'
 import filtersReducer from './filters/filterSlice'
 
+const persistAuthConfig = {
+  key: 'auth',
+  storage,
+  blacklist: ['error', 'isLoading'],
+}
+
+const persistedAuthReducer = persistReducer(persistAuthConfig, authReducer)
+
 const persistDriversConfig = {
   key: 'drivers',
   storage,
@@ -28,9 +36,9 @@ const persistedDriversReducer = persistReducer(
 
 export const store = configureStore({
   reducer: {
+    auth: persistedAuthReducer,
     drivers: persistedDriversReducer,
     filters: filtersReducer,
-    auth: authReducer,
   },
   middleware(getDefaultMiddleware) {
     return getDefaultMiddleware({
