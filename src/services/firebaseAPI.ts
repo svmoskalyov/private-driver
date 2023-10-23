@@ -1,9 +1,9 @@
 import axios from 'axios'
-
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
+  signOut,
 } from 'firebase/auth'
 
 import { auth } from './firebaseConfig'
@@ -40,23 +40,64 @@ export const getDriversApi = async (
   return res
 }
 
+// export const registerUserApi = async ({
+//   name,
+//   email,
+//   password,
+// }: RegistrationForm) => {
+//   const { user } = await createUserWithEmailAndPassword(auth, email, password)
+//   await updateProfile(user, {
+//     displayName: name,
+//   })
+//   return user
+// }
+
+// export const loginUserApi = async ({ email, password }: LoginForm) => {
+//   const { user } = await signInWithEmailAndPassword(auth, email, password)
+//   return user
+// }
+
+// export const logoutUserAPI = async () => {
+//   await auth.signOut()
+//   console.log('logout')
+// }
+
 export const registerUserApi = async ({
   name,
   email,
   password,
 }: RegistrationForm) => {
-  const { user } = await createUserWithEmailAndPassword(auth, email, password)
-  await updateProfile(user, {
-    displayName: name,
-  })
-  return user
+  return createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user
+      updateProfile(user, {
+        displayName: name,
+      })
+
+      return user
+    })
+    .catch((error) => {
+      return error.message
+    })
 }
 
 export const loginUserApi = async ({ email, password }: LoginForm) => {
-  const { user } = await signInWithEmailAndPassword(auth, email, password)
-  return user
+  return signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user
+      return user
+    })
+    .catch((error) => {
+      return error.message
+    })
 }
 
 export const logoutUserAPI = async () => {
-  await auth.signOut()
+  return signOut(auth)
+    .then(() => {
+      return true
+    })
+    .catch((error) => {
+      return error.message
+    })
 }
