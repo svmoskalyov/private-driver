@@ -34,8 +34,10 @@ const authSlice = createSlice({
         state.name = payload.displayName
         state.isAuth = true
       })
-      .addCase(logoutUser.fulfilled, () => {
-        return initialState
+      .addCase(logoutUser.fulfilled, (_, { payload }) => {
+        if (payload) {
+          return initialState
+        }
       })
       .addMatcher(
         (action) =>
