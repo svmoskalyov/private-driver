@@ -9,6 +9,7 @@ import {
 
 import { Layout } from './components/Layout'
 import { PrivateRoute } from './components/routes/PrivateRoute'
+import { PublicRoute } from './components/routes/PublicRoute'
 
 const Home = lazy(() => import('./pages/Home'))
 const Drivers = lazy(() => import('./pages/Drivers'))
@@ -25,8 +26,11 @@ const router = createBrowserRouter(
         path='favorites'
         element={<PrivateRoute component={Favorites} />}
       />
-      <Route path='login' element={<Login />} />
-      <Route path='registration' element={<Registration />} />
+      <Route path='login' element={<PublicRoute component={Login} />} />
+      <Route
+        path='registration'
+        element={<PublicRoute component={Registration} />}
+      />
       <Route path='*' element={<Navigate to='/' replace />} />
     </Route>,
   ),
