@@ -12,5 +12,5 @@ interface PropType {
 export const PrivateRoute: FC<PropType> = ({ component: Component }) => {
   const isAuth = useAppSelector(selectIsAuth)
 
-  return !isAuth ? <Navigate to='/login' /> : <Component />
+  return !isAuth ? <Navigate to='/' /> : <Component />
 }
