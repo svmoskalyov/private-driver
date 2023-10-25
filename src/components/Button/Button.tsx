@@ -5,6 +5,7 @@ export const Button = ({
   className,
   type = 'button',
   onClick,
+  disabled,
   children,
   ...allyProps
 }: Props) => (
@@ -12,6 +13,7 @@ export const Button = ({
     className={`${className} ${s.button}`}
     type={type}
     onClick={onClick}
+    disabled={disabled}
     {...allyProps}
   >
     {children}
