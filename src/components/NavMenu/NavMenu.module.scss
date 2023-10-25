@@ -1,0 +1,37 @@
+@import '../../sass/utils/functions';
+
+.navMenu {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.navList {
+  display: flex;
+  gap: 28px;
+  height: 100%;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+
+  font-size: getFontSize(norm);
+  font-weight: getFontWeight(regular);
+  color: getColor(textPrimary);
+
+  border: none;
+}
+
+.navLink:hover:not(.activeLink),
+.navLink:focus-visible:not(.activeLink) {
+  color: getColor(accent);
+  background-color: getColor(defaultWhite);
+}
+
+.activeLink {
+  cursor: default;
+  color: getColor(accent);
+}
