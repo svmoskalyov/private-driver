@@ -40,13 +40,21 @@ export const store = configureStore({
     drivers: persistedDriversReducer,
     filters: filtersReducer,
   },
-  middleware(getDefaultMiddleware) {
-    return getDefaultMiddleware({
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
       serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        ignoredActions: [
+          FLUSH,
+          REHYDRATE,
+          PAUSE,
+          PERSIST,
+          PURGE,
+          REGISTER,
+          'auth/login/rejected',
+        ],
+        ignoredPaths: ['auth.error'],
       },
-    })
-  },
+    }),
 })
 
 export type RootState = ReturnType<typeof store.getState>
