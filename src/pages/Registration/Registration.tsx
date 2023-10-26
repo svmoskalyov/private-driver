@@ -1,23 +1,39 @@
-import { useCallback, useState } from 'react'
-
+import { useCallback, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 import { FormRegistration } from '../../components/FormRegistration'
 import { Modal } from '../../components/Modal'
+import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks'
+import { selectAuthError } from '../../redux/auth/authSelectors'
+import { setErrNull } from '../../redux/auth/authSlice'
 
 const Registration = () => {
   const navigate = useNavigate()
+  const dispatch = useAppDispatch()
+  const error = useAppSelector(selectAuthError)
+  const [showModal, setShowModal] = useState<boolean>(true)
 
   const handleCloseModal = useCallback(() => {
     navigate('/')
   }, [navigate])
 
-  const [showModal, setShowModal] = useState<boolean>(true)
-
   const toggleModal = () => {
     setShowModal(!showModal)
     handleCloseModal()
+    dispatch(setErrNull())
   }
+
+  const createErrorMessage = (error: string) => {
+    toast.error(error)
+    return error
+  }
+
+  useEffect(() => {
+    if (error) {
+      createErrorMessage(error)
+    }
+  }, [error])
 
   return (
     <>
