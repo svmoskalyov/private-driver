@@ -7,6 +7,9 @@ import {
   createRoutesFromElements,
 } from 'react-router-dom'
 
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
 import { Layout } from './components/Layout'
 import { PrivateRoute } from './components/routes/PrivateRoute'
 import { PublicRoute } from './components/routes/PublicRoute'
@@ -38,7 +41,10 @@ const router = createBrowserRouter(
 
 function App() {
   return (
-    <RouterProvider router={router} fallbackElement={<div>LOADING...</div>} />
+    <>
+      <RouterProvider router={router} fallbackElement={<div>LOADING...</div>} />
+      <ToastContainer autoClose={3000} />
+    </>
   )
 }
 
