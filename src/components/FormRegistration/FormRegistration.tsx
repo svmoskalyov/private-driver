@@ -2,17 +2,25 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { useState } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { FiEye, FiEyeOff } from 'react-icons/fi'
+import { BeatLoader } from 'react-spinners'
 
 import s from './FormRegistration.module.scss'
 import { Props, RegistrationForm } from './FormRegistration.types'
 
-import { useAppDispatch } from '../../hooks/reduxHooks'
+import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks'
 import { registerUser } from '../../redux/auth/authOperations'
+import {
+  selectAuthIsLoading,
+  selectIsAuth,
+} from '../../redux/auth/authSelectors'
 import { registerSchema } from '../../utils/yupSchemas'
 import { Button } from '../Button'
 
 export const FormRegistration = ({ onClose }: Props) => {
   const dispatch = useAppDispatch()
+  const isLoading = useAppSelector<boolean>(selectAuthIsLoading)
+  const isAuth = useAppSelector<boolean>(selectIsAuth)
+  const [passwordShown, setPasswordShown] = useState<boolean>(false)
 
   const {
     register,
@@ -20,15 +28,16 @@ export const FormRegistration = ({ onClose }: Props) => {
     formState: { errors },
   } = useForm<RegistrationForm>({ resolver: yupResolver(registerSchema) })
 
-  const [passwordShown, setPasswordShown] = useState<boolean>(false)
-
   const togglePassword = () => {
     setPasswordShown(!passwordShown)
   }
 
   const onSubmit: SubmitHandler<RegistrationForm> = (data) => {
     dispatch(registerUser(data))
-    onClose()
+
+    if (isAuth) {
+      onClose()
+    }
   }
 
   return (
@@ -92,9 +101,10 @@ export const FormRegistration = ({ onClose }: Props) => {
         <Button
           type='submit'
           className={s.btnRegistration}
+          disabled={isLoading}
           aria-label='button registration'
         >
-          Sign Up
+          {isLoading ? <BeatLoader /> : 'Sign Up'}
         </Button>
       </form>
     </div>
