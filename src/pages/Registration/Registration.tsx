@@ -25,7 +25,12 @@ const Registration = () => {
   }
 
   const createErrorMessage = (error: string) => {
-    toast.error(error)
+    if (`${error}` === 'auth/email-already-in-use') {
+      toast.error('Email already exists')
+    } else {
+      toast.error(error)
+    }
+
     return error
   }
 
