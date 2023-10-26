@@ -20,13 +20,13 @@ export const FormLogin = ({ onClose }: Props) => {
   const dispatch = useAppDispatch()
   const isLoading = useAppSelector<boolean>(selectAuthIsLoading)
   const isAuth = useAppSelector<boolean>(selectIsAuth)
+  const [passwordShown, setPasswordShown] = useState<boolean>(false)
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<LoginForm>({ resolver: yupResolver(loginSchema) })
-  const [passwordShown, setPasswordShown] = useState<boolean>(false)
 
   const togglePassword = () => {
     setPasswordShown(!passwordShown)
