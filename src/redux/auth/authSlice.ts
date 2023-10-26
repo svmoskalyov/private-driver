@@ -21,29 +21,36 @@ const initialState: UserState = {
 const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {},
+  reducers: {
+    setErrNull(state) {
+      state.error = null
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(registerUser.fulfilled, (state, { payload }) => {
-        state.email = payload.email
-        state.name = payload.displayName
-        state.isAuth = true
+        if (payload.email !== null || payload.displayName !== null) {
+          state.email = payload.email
+          state.name = payload.displayName
+          state.isAuth = true
+        }
       })
       .addCase(loginUser.fulfilled, (state, { payload }) => {
-        state.email = payload.email
-        state.name = payload.displayName
-        state.isAuth = true
-      })
-      .addCase(logoutUser.fulfilled, (_, { payload }) => {
-        if (payload) {
-          return initialState
+        if (payload.email !== null || payload.displayName !== null) {
+          state.email = payload.email
+          state.name = payload.displayName
+          state.isAuth = true
         }
+      })
+      .addCase(logoutUser.fulfilled, () => {
+        return initialState
       })
       .addMatcher(
         (action) =>
           action.type.startsWith('auth') && action.type.endsWith('/pending'),
         (state) => {
           state.isLoading = true
+          state.error = null
         },
       )
       .addMatcher(
@@ -59,10 +66,11 @@ const authSlice = createSlice({
           action.type.startsWith('auth') && action.type.endsWith('/rejected'),
         (state, { payload }) => {
           state.isLoading = false
-          state.error = payload
+          state.error = payload.code
         },
       )
   },
 })
 
+export const { setErrNull } = authSlice.actions
 export default authSlice.reducer
