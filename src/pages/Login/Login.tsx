@@ -27,7 +27,10 @@ const Login = () => {
   const createErrorMessage = (error: string) => {
     if (`${error}` === 'auth/invalid-login-credentials') {
       toast.error('Email or password is not correct')
+    } else {
+      toast.error(error)
     }
+
     return error
   }
 
