@@ -2,17 +2,24 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { useState } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { FiEye, FiEyeOff } from 'react-icons/fi'
+import { BeatLoader } from 'react-spinners'
 
 import s from './FormLogin.module.scss'
 import { LoginForm, Props } from './FormLogin.types'
 
-import { useAppDispatch } from '../../hooks/reduxHooks'
+import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks'
 import { loginUser } from '../../redux/auth/authOperations'
+import {
+  selectAuthIsLoading,
+  selectIsAuth,
+} from '../../redux/auth/authSelectors'
 import { loginSchema } from '../../utils/yupSchemas'
 import { Button } from '../Button'
 
 export const FormLogin = ({ onClose }: Props) => {
   const dispatch = useAppDispatch()
+  const isLoading = useAppSelector<boolean>(selectAuthIsLoading)
+  const isAuth = useAppSelector<boolean>(selectIsAuth)
 
   const {
     register,
@@ -27,7 +34,10 @@ export const FormLogin = ({ onClose }: Props) => {
 
   const onSubmit: SubmitHandler<LoginForm> = (data) => {
     dispatch(loginUser(data))
-    onClose()
+
+    if (isAuth) {
+      onClose()
+    }
   }
 
   return (
@@ -78,8 +88,13 @@ export const FormLogin = ({ onClose }: Props) => {
           </li>
         </ul>
 
-        <Button type='submit' className={s.btnLogin} aria-label='button login'>
-          Log In
+        <Button
+          type='submit'
+          className={s.btnLogin}
+          disabled={isLoading}
+          aria-label='button login'
+        >
+          {isLoading ? <BeatLoader /> : 'Log In'}
         </Button>
       </form>
     </div>
