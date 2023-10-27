@@ -5,24 +5,26 @@ export const DriverInfo = ({ languages, driver_info, skills }: Props) => {
   return (
     <ul className={s.infoList}>
       <li className={s.infoListItem}>
-        Speaks:
-        {languages?.map((e, i) => (
-          <span className={`${s.infoText} ${s.infoLang}`} key={i}>
-            {e}
-          </span>
-        ))}
+        <span className={s.infoName}>Speaks:</span>
+        <p className={s.infoText}>
+          {languages?.map((e, i) => (
+            <span className={s.infoLang} key={i}>
+              {e}
+            </span>
+          ))}
+        </p>
       </li>
+
       <li className={s.infoListItem}>
-        Driver Info:
-        <span className={s.infoText}>{driver_info}</span>
+        <span className={s.infoName}>Driver Info:</span>
+        <p className={s.infoText}>{driver_info}</p>
       </li>
+
       <li className={s.infoListItem}>
-        Skills:
-        {skills?.map((e, i) => (
-          <span className={s.infoText} key={i}>
-            {e}
-          </span>
-        ))}
+        <span className={s.infoName}>Skills:</span>
+        <p className={s.infoText}>
+          {skills?.map((e, i) => <span key={i}>{e}</span>)}
+        </p>
       </li>
     </ul>
   )
