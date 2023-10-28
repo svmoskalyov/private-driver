@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom'
 import s from './Home.module.scss'
 
 import driver from '../../assets/images/driver.jpg'
-import { ArrowStart } from '../../components/ArrowStart'
-import { Button } from '../../components/Button'
 
 const Home = () => (
   <>
@@ -16,8 +14,6 @@ const Home = () => (
         </h1>
         <Link to='drivers' className={s.getStarted}>
           Get started
-          {/* <Button className={s.btnStarted}>Get started</Button> */}
-          {/* <ArrowStart name='Get started' /> */}
         </Link>
       </li>
       <li>
