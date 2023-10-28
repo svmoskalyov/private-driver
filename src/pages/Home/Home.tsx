@@ -4,6 +4,7 @@ import s from './Home.module.scss'
 
 import driver from '../../assets/images/driver.jpg'
 import { ArrowStart } from '../../components/ArrowStart'
+import { Button } from '../../components/Button'
 
 const Home = () => (
   <>
@@ -14,7 +15,9 @@ const Home = () => (
           <mark className={s.titleAccent}>choose your driver</mark>
         </h1>
         <Link to='drivers' className={s.getStarted}>
-          <ArrowStart name='Get started' />
+          Get started
+          {/* <Button className={s.btnStarted}>Get started</Button> */}
+          {/* <ArrowStart name='Get started' /> */}
         </Link>
       </li>
       <li>
