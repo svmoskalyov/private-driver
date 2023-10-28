@@ -3,6 +3,9 @@
 .topInfoList {
   display: inline-flex;
   gap: 16px;
+  @media screen and (max-width: 767px) {
+    margin-bottom: 32px;
+  }
 }
 
 .topInfoItem {
