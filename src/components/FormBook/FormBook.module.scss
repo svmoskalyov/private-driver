@@ -7,16 +7,16 @@
 
 .title {
   margin-bottom: 20px;
-  font-size: 40px;
-  font-weight: 500;
+  font-size: getFontSize(larg);
+  font-weight: getFontWeight(medium);
   line-height: 48px;
   letter-spacing: -0.8px;
 }
 
 .text {
   margin-bottom: 20px;
-  color: rgba(18, 20, 23, 0.8);
-  font-size: 16px;
+  color: getColor(textStat);
+  font-size: getFontSize(norm);
   line-height: 22px;
 }
 
@@ -31,15 +31,15 @@
 
 .driverText {
   margin-bottom: 4px;
-  color: #8a8a89;
-  font-size: 12px;
-  font-weight: 500;
+  color: getColor(textSecondary);
+  font-size: getFontSize(smal);
+  font-weight: getFontWeight(medium);
   line-height: 16px;
 }
 
 .driverName {
-  font-size: 16px;
-  font-weight: 500;
+  font-size: getFontSize(norm);
+  font-weight: getFontWeight(medium);
   line-height: 24px;
 }
 
@@ -51,8 +51,8 @@
 
 .planningTitle {
   margin-bottom: 20px;
-  font-size: 24px;
-  font-weight: 500;
+  font-size: getFontSize(great);
+  font-weight: getFontWeight(medium);
   line-height: 32px;
 }
 
@@ -68,7 +68,7 @@
 }
 
 .planningLabel {
-  font-size: 16px;
+  font-size: getFontSize(norm);
   line-height: 22px;
   display: grid;
   grid-template-columns: 20px auto;
@@ -132,22 +132,22 @@ input[type='radio']:focus {
 }
 
 .formField:focus {
-  border-color: #00c8ff;
+  border-color: getColor(accent);
 }
 
 .formField::placeholder {
-  color: #121417;
-  font-size: 16px;
+  color: getColor(textPrimary);
+  font-size: getFontSize(norm);
   line-height: 22px;
 }
 
 .btnBook {
   padding: 16px;
-  background: #41adff;
+  background: getColor(primary);
   outline: none;
 }
 
 .btnBook:hover,
 .btnBook:focus {
-  background: #00c8ff;
+  background: getColor(accent);
 }

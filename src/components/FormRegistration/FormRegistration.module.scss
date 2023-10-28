@@ -7,16 +7,16 @@
 
 .title {
   margin-bottom: 20px;
-  font-size: 40px;
-  font-weight: 500;
+  font-size: getFontSize(larg);
+  font-weight: getFontWeight(medium);
   line-height: 48px;
   letter-spacing: -0.8px;
 }
 
 .text {
   margin-bottom: 40px;
-  color: rgba(18, 20, 23, 0.8);
-  font-size: 16px;
+  color: getColor(textStat);
+  font-size: getFontSize(norm);
   line-height: 22px;
 }
 
@@ -46,19 +46,19 @@
   padding: 16px 18px;
   border: 2px solid rgba(18, 20, 23, 0.1);
   border-radius: 12px;
-  color: #121417;
-  font-size: 16px;
+  color: getColor(textPrimary);
+  font-size: getFontSize(norm);
   line-height: 22px;
   outline: none;
   background: none;
 }
 
 .formInput:hover {
-  border-color: #00c8ff;
+  border-color: getColor(accent);
 }
 
 .formInput:focus {
-  border-color: #41adff;
+  border-color: getColor(primary);
 }
 
 .formLabel {
@@ -66,8 +66,8 @@
   left: 18px;
   top: 16px;
   padding: 0 8px;
-  color: #121417;
-  font-size: 16px;
+  color: getColor(textPrimary);
+  font-size: getFontSize(norm);
   line-height: 22px;
   cursor: text;
   -webkit-transition:
@@ -84,7 +84,7 @@
 .formInput:focus ~ .formLabel,
 .formInput:not(:placeholder-shown).formInput:not(:focus) ~ .formLabel {
   top: -10px;
-  font-size: 12px;
+  font-size: getFontSize(smal);
   left: 12px;
 }
 
@@ -93,17 +93,17 @@
   top: 18px;
   right: 18px;
   width: 20px;
-  color: #121417;
+  color: getColor(textPrimary);
   cursor: pointer;
 }
 
 .btnRegistration {
   padding: 16px;
-  background: #41adff;
+  background: getColor(primary);
   outline: none;
 }
 
 .btnRegistration:hover,
 .btnRegistration:focus {
-  background: #00c8ff;
+  background: getColor(accent);
 }

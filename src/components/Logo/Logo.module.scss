@@ -3,8 +3,8 @@
   align-items: center;
   gap: 8px;
   width: 61px;
-  font-size: 20px;
-  font-weight: 500;
+  font-size: getFontSize(big);
+  font-weight: getFontWeight(medium);
   line-height: 24px;
   letter-spacing: -0.4px;
   cursor: default;

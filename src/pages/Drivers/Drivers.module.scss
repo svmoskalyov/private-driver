@@ -9,11 +9,11 @@
 .btnLoadMore {
   margin: 0 auto 32px;
   padding: 16px 48px;
-  background: #41adff;
+  background: getColor(primary);
   outline: none;
 }
 
 .btnLoadMore:hover,
 .btnLoadMore:focus {
-  background: #00c8ff;
+  background: getColor(accent);
 }

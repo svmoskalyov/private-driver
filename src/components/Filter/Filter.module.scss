@@ -7,9 +7,9 @@
 }
 
 .filterLabel {
-  color: #8a8a89;
-  font-size: 14px;
-  font-weight: 500;
+  color: getColor(textSecondary);
+  font-size: getFontSize(med);
+  font-weight: getFontWeight(medium);
   line-height: 18px;
 }
 
@@ -30,11 +30,11 @@
   -ms-user-select: none;
   user-select: none;
 
-  color: #121417;
-  font-size: 18px;
-  font-weight: 500;
+  color: getColor(textPrimary);
+  font-size: getFontSize(babig);
+  font-weight: getFontWeight(medium);
   line-height: 20px;
-  background-color: #fff;
+  background-color: getColor(defaultWhite);
 
   border: 1px solid transparent;
   border-radius: 14px;
@@ -43,22 +43,22 @@
 }
 
 .btnFilter:hover {
-  color: #fff;
-  background-color: #41adff;
+  color: getColor(defaultWhite);
+  background-color: getColor(primary);
 }
 
 .icon {
   size: 20px;
-  color: #121417;
+  color: getColor(textPrimary);
 }
 
 .dropdown {
   position: absolute;
   top: 54px;
   left: 0;
-  background: #fff;
+  background: getColor(defaultWhite);
   padding: 14px 18px;
-  color: #41adff;
+  color: getColor(primary);
   text-align: left;
   box-shadow: 0px 10px 25px -20px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 0px 10px 25px -20px rgba(0, 0, 0, 0.75);
@@ -73,18 +73,18 @@
 
 .dropdownItem {
   padding: 1px 8px;
-  color: rgba(18, 20, 23, 0.2);
-  font-size: 18px;
-  font-weight: 500;
+  color: getColor(muted);
+  font-size: getFontSize(babig);
+  font-weight: getFontWeight(medium);
   line-height: 20px;
 }
 
 .dropdownItem:hover {
-  color: #fff;
-  background-color: #41adff;
+  color: getColor(defaultWhite);
+  background-color: getColor(primary);
   border-radius: 8px;
 }
 
 .choiced {
-  color: #121417;
+  color: getColor(textPrimary);
 }
