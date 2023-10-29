@@ -2,6 +2,7 @@ node_modules/
 dist/
 build/
 logs/
+assets/
 .DS_Store
 .vscode/*
 *.local
