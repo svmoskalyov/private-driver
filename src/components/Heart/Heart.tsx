@@ -30,7 +30,7 @@ export const Heart = (el: DriverFav) => {
           type='checkbox'
           name='status'
           checked={isFav}
-          onChange={() => toast.warning('Available to authorized users')}
+          onChange={() => toast.info('Available to authorized users')}
         />
       )}
       <FiHeart className={s.heart} />
