@@ -40,75 +40,80 @@ export const FormBook = ({ driver_avatar, name, surname, onClose }: Props) => {
       </div>
 
       <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
-        <ul className={s.planningList}>
+        <div>
           <h3 className={s.planningTitle}>
             What kind of trip are you planning?
           </h3>
+          <ul className={s.planningList}>
+            <li className={s.planningItem}>
+              <label className={s.planningLabel}>
+                <input
+                  {...register('planning')}
+                  type='radio'
+                  value='business'
+                />
+                Business
+              </label>
+            </li>
 
-          <li className={s.planningItem}>
-            <label className={s.planningLabel}>
-              <input {...register('planning')} type='radio' value='business' />
-              Business
-            </label>
-          </li>
+            <li className={s.planningItem}>
+              <label className={s.planningLabel}>
+                <input {...register('planning')} type='radio' value='free' />
+                Free
+              </label>
+            </li>
 
-          <li className={s.planningItem}>
-            <label className={s.planningLabel}>
-              <input {...register('planning')} type='radio' value='free' />
-              Free
-            </label>
-          </li>
+            <li className={s.planningItem}>
+              <label className={s.planningLabel}>
+                <input {...register('planning')} type='radio' value='party' />
+                Party
+              </label>
+            </li>
 
-          <li className={s.planningItem}>
-            <label className={s.planningLabel}>
-              <input {...register('planning')} type='radio' value='party' />
-              Party
-            </label>
-          </li>
-
-          {errors.planning && (
-            <p className={'errorForm'}>{errors.planning.message}</p>
-          )}
-        </ul>
+            {errors.planning && (
+              <p className={'errorForm'}>{errors.planning.message}</p>
+            )}
+          </ul>
+        </div>
 
         <ul className={s.formList}>
           <li className={s.formItem}>
-            <label className={s.formLabel}>
-              <input
-                className={s.formField}
-                {...register('name')}
-                type='text'
-                placeholder='Full Name'
-              />
-            </label>
+            <input
+              className={s.formInput}
+              {...register('name')}
+              type='text'
+              id='name'
+              placeholder=' '
+            />
+            <label className={s.formLabel}>Full Name</label>
             {errors.name && (
               <p className={'errorForm'}>{errors.name.message}</p>
             )}
           </li>
 
           <li className={s.formItem}>
-            <label className={s.formLabel}>
-              <input
-                className={s.formField}
-                {...register('email')}
-                type='email'
-                placeholder='Email'
-              />
-            </label>
+            <input
+              className={s.formInput}
+              {...register('email')}
+              type='email'
+              id='email'
+              placeholder=' '
+            />
+            <label className={s.formLabel}>Email</label>
             {errors.email && (
               <p className={'errorForm'}>{errors.email.message}</p>
             )}
           </li>
 
           <li className={s.formItem}>
-            <label className={s.formLabel}>
-              <input
-                className={s.formField}
-                {...register('phone')}
-                type='tel'
-                placeholder='Phone Number'
-              />
-            </label>
+            <input
+              className={s.formInput}
+              {...register('phone')}
+              type='tel'
+              id='phone'
+              placeholder=' '
+            />
+            <label className={s.formLabel}>Phone Number</label>
             {errors.phone && (
               <p className={'errorForm'}>{errors.phone.message}</p>
             )}
