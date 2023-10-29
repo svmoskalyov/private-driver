@@ -79,6 +79,7 @@
     left 200ms ease-in,
     font-size 200ms ease-in;
   background-color: getColor(defaultWhite);
+  pointer-events: none;
 }
 
 .formInput:focus ~ .formLabel,
