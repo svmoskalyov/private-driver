@@ -2,15 +2,9 @@ import s from './Favorites.module.scss'
 
 import { CardList } from '../../components/CardList'
 import { useAppSelector } from '../../hooks/reduxHooks'
-import {
-  selectError,
-  selectFavorites,
-  selectIsLoading,
-} from '../../redux/drivers/driversSelectors'
+import { selectFavorites } from '../../redux/drivers/driversSelectors'
 
 const Favorites = () => {
-  const loading = useAppSelector<boolean>(selectIsLoading)
-  const err = useAppSelector<string | null>(selectError)
   const favorites = useAppSelector<DriverFav[]>(selectFavorites)
 
   return (
