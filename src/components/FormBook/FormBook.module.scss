@@ -121,24 +121,59 @@ input[type='radio']:focus {
 
 .formItem {
   position: relative;
+  height: 54px;
 }
 
-.formField {
-  padding: 16px 18px;
+.formInput {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  padding: 16px 18px;
+  border: 2px solid rgba(18, 20, 23, 0.1);
   border-radius: 12px;
-  border: 1px solid rgba(18, 20, 23, 0.1);
-  outline: none;
-}
-
-.formField:focus {
-  border-color: getColor(accent);
-}
-
-.formField::placeholder {
   color: getColor(textPrimary);
   font-size: getFontSize(norm);
   line-height: 22px;
+  outline: none;
+  background: none;
+}
+
+.formInput:hover {
+  border-color: getColor(accent);
+}
+
+.formInput:focus {
+  border-color: getColor(primary);
+}
+
+.formLabel {
+  position: absolute;
+  left: 18px;
+  top: 16px;
+  padding: 0 8px;
+  color: getColor(textPrimary);
+  font-size: getFontSize(norm);
+  line-height: 22px;
+  cursor: text;
+  -webkit-transition:
+    top 200ms ease-in,
+    left 200ms ease-in,
+    font-size 200ms ease-in;
+  transition:
+    top 200ms ease-in,
+    left 200ms ease-in,
+    font-size 200ms ease-in;
+  background-color: getColor(defaultWhite);
+  pointer-events: none;
+}
+
+.formInput:focus ~ .formLabel,
+.formInput:not(:placeholder-shown).formInput:not(:focus) ~ .formLabel {
+  top: -10px;
+  font-size: getFontSize(smal);
+  left: 12px;
 }
 
 .btnBook {
