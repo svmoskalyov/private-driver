@@ -50,7 +50,7 @@ export const CardItem = (el: DriverFav) => {
       <li key={driverId} className={s.cardItem}>
         <Avatar src={driver_avatar} alt='avatar driver' />
 
-        <div>
+        <div className={s.topBox}>
           <div className={s.topWrapper}>
             <DriverTopInfo
               rating={rating}
@@ -58,7 +58,8 @@ export const CardItem = (el: DriverFav) => {
               trips_made={trips_made}
             />
 
-            {isAuth && <Heart {...el} />}
+            <Heart {...el} />
+            {/* {isAuth && <Heart {...el} />} */}
           </div>
 
           <h2 className={s.driverName}>
