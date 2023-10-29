@@ -1,12 +1,17 @@
 @import '../../sass/utils/functions';
 
 .chekboxHeart {
+  cursor: pointer;
+  user-select: none;
   display: inline-flex;
   border-radius: 50%;
-  user-select: none;
-  cursor: pointer;
 }
 
+.heart {
+  width: 18px;
+  height: 18px;
+  color: getColor(textPrimary);
+}
 .chekboxHeart input:hover ~ .heart,
 .chekboxHeart input:focus ~ .heart {
   color: getColor(primary);
@@ -15,10 +20,4 @@
 .chekboxHeart input:checked ~ .heart {
   color: getColor(primary);
   fill: getColor(primary);
-}
-
-.heart {
-  width: 18px;
-  height: 18px;
-  color: getColor(textPrimary);
 }

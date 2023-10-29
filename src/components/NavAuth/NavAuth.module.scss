@@ -13,11 +13,10 @@
   line-height: 20px;
   color: getColor(defaultWhite);
 
+  background-color: getColor(textPrimary);
   border: none;
   border-radius: 12px;
   outline: none;
-
-  background-color: getColor(textPrimary);
 }
 
 .authLogin {
@@ -25,10 +24,17 @@
   align-items: center;
 
   min-width: 86px;
+
   font-size: getFontSize(norm);
   font-weight: getFontWeight(semibold);
   line-height: 20px;
   color: getColor(textPrimary);
+}
+
+.icon {
+  size: 20px;
+  margin-right: 8px;
+  color: getColor(primary);
 }
 
 .authRegistration:hover,
@@ -40,10 +46,4 @@
   .icon {
     color: getColor(accent);
   }
-}
-
-.icon {
-  size: 20px;
-  margin-right: 8px;
-  color: getColor(primary);
 }

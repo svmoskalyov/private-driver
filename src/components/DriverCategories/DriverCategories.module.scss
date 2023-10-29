@@ -7,19 +7,21 @@
 
 .categoriesItems {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+
   width: 44px;
   height: 44px;
 
-  border-radius: 50%;
-  border: 1px solid getColor(muted);
   font-size: getFontSize(med);
   font-weight: getFontWeight(medium);
   line-height: 16px;
+
+  border: 1px solid getColor(muted);
+  border-radius: 50%;
 }
 
 .categoriesItemsChoice {
-  border: none;
   background: getColor(primary);
+  border: none;
 }

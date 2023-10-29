@@ -6,7 +6,6 @@
 
   object-fit: cover;
   object-position: top center;
-
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
@@ -19,11 +18,13 @@
 
 .avatarDriverWrapper {
   display: inline-flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+
   min-width: 120px;
   max-height: 120px;
-  border-radius: 50%;
-  border: 3px solid getColor(primary);
+
   background: getColor(defaultWhite);
+  border: 3px solid getColor(primary);
+  border-radius: 50%;
 }

@@ -14,10 +14,10 @@
 }
 
 .infoName {
-  white-space: nowrap;
-  color: getColor(textSecondary);
   font-weight: getFontWeight(medium);
   line-height: 24px;
+  color: getColor(textSecondary);
+  white-space: nowrap;
 }
 
 .infoText {

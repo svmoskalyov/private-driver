@@ -2,19 +2,21 @@
 
 .cardItem {
   display: flex;
-  padding: 24px;
+  gap: 48px;
+
   width: 100%;
   min-height: 328px;
-  gap: 48px;
-  border-radius: 24px;
+  padding: 24px;
+
   background-color: getColor(defaultWhite);
+  border-radius: 24px;
 }
 
 .topWrapper {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   gap: 64px;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .driverName {
@@ -44,8 +46,9 @@
 .btnBookTrip {
   margin-top: 32px;
   padding: 16px 48px;
-  border-radius: 12px;
+
   background: getColor(primary);
+  border-radius: 12px;
   outline: none;
 }
 
