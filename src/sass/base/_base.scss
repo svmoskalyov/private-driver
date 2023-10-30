@@ -28,3 +28,7 @@ body {
   font-size: getFontSize(smal);
   color: getColor(error);
 }
+
+body.bodyWhite {
+  background-color: getColor(defaultWhite);
+}
