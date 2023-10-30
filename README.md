@@ -1,7 +1,9 @@
 # 🚙 [PRIVATE DRIVER](https://private-driver.vercel.app/)
 
 ### 📝 About the application
-Application of a company that offers to use the services of hiring a personal driver. The application consists of 3 pages:
+Application of a company that offers to use the services of hiring a personal driver.
+
+The application consists of 3 pages:
  - "Home" page - the company's start page and a button inviting you to start working with the application
  - "Drivers" page - contains a list of drivers that the user can filter by the driver's language, driver's license category, and price per hour of hire
  - "Favorites" page - a private page with drivers added by the user to "favorites"
