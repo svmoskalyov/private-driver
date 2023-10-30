@@ -3,3 +3,11 @@
   grid-template-rows: 88px 1fr;
   margin: 0 auto;
 }
+
+main {
+  max-width: 1440px;
+
+  @media screen and (min-width: 540px) {
+    margin: auto;
+  }
+}
