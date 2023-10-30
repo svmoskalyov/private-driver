@@ -1,7 +1,9 @@
 @import '../../sass/utils/functions';
 
 .favorites {
-  padding-top: 32px;
+  max-width: 1184px;
+  margin: 0 auto;
+  padding: 32px;
 }
 
 .notFavCar {
