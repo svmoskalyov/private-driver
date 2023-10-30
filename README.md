@@ -19,6 +19,10 @@ TypeScript, React, Redux, SASS/SCSS, Firebase, React DOM, React Router, React Ic
 
 ---
 ![image](https://github.com/svmoskalyov/private-driver/assets/107481840/07f9dffd-5d68-4c22-aaa2-6f1a0220d9a8)
+
+---
 ![image](https://github.com/svmoskalyov/private-driver/assets/107481840/47ce81ff-261c-459d-ba40-6de60b1174f0)
+
+---
 ![image](https://github.com/svmoskalyov/private-driver/assets/107481840/f9fe68dc-89c0-4cc1-a504-22abc606a2b0)
 
