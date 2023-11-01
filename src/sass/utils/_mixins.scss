@@ -1,0 +1,10 @@
+@mixin autoFontSize($min, $max) {
+  $min-px: #{$min}px;
+  $min-dev-px: getBreakpoint(mobile);
+  $min-dev: getBreakpointNP(mobile);
+  $max-dev: getBreakpointNP(laptop);
+
+  font-size: calc(
+    $min-px + ($max - $min) * ((100vw - $min-dev-px) / ($max-dev - $min-dev))
+  );
+}
