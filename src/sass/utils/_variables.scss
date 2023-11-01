@@ -37,3 +37,9 @@ $colors: (
   'defaultWhite': #fff,
   'error': #ff0000,
 );
+
+$breakpoints: (
+  'mobile': 320,
+  'tablet': 1024,
+  'laptop': 1440,
+);
