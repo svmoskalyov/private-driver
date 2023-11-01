@@ -15,3 +15,12 @@
 @function getColor($key) {
   @return map-get($colors, $key);
 }
+
+@function getBreakpointNP($key) {
+  @return map-get($breakpoints, $key);
+}
+
+@function getBreakpoint($key) {
+  $pxvalue: map-get($breakpoints, $key);
+  @return #{$pxvalue}px;
+}
