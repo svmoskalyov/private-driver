@@ -1,17 +1,18 @@
 @import '../../sass/utils/functions';
+@import '../../sass/utils/mixins';
 
 .favorites {
+  @include autoSize(padding, 16, 32);
+
   max-width: 1184px;
   margin: 0 auto;
-  padding: 32px;
 }
 
 .notFavCar {
-  padding: 30px;
+  @include autoSize(line-height, 14, 24);
 
-  font-size: getFontSize(norm);
+  padding: 30px;
   font-weight: getFontWeight(medium);
-  line-height: 24px;
   color: getColor(secondory);
   text-align: center;
 }
