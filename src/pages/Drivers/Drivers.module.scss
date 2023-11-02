@@ -1,14 +1,19 @@
 @import '../../sass/utils/functions';
+@import '../../sass/utils/mixins';
 
 .drivers {
+  @include autoSize(padding, 16, 32);
+
   max-width: 1184px;
   margin: 0 auto;
-  padding: 32px;
 }
 
 .btnLoadMore {
+  @include autoSizeBtn(padding-top, 8, 16);
+  @include autoSizeBtn(padding-right, 24, 48);
+  @include autoSize(border-radius, 6, 12);
+
   margin: 0 auto 32px;
-  padding: 16px 48px;
   background: getColor(primary);
   outline: none;
 }
