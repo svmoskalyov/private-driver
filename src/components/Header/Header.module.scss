@@ -1,17 +1,17 @@
 @import '../../sass/utils/functions';
+@import '../../sass/utils/mixins';
 
 .header {
+  @include autoSizeBtn(padding-top, 16, 20);
+  @include autoSizeBtn(padding-right, 16, 64);
+
   position: sticky;
   z-index: 1100;
   top: 0;
   left: 0;
-
   display: flex;
-  gap: 22px;
   align-items: center;
   justify-content: space-between;
-
-  padding: 20px 64px;
-
+  gap: 22px;
   background-color: getColor(defaultWhite);
 }

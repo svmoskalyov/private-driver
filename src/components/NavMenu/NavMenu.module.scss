@@ -1,26 +1,25 @@
 @import '../../sass/utils/functions';
+@import '../../sass/utils/mixins';
 
 .navMenu {
   display: flex;
   align-items: center;
+  height: 100%;
 }
 
 .navList {
+  @include autoSize(gap, 12, 28);
+
   display: flex;
-  gap: 28px;
   height: 100%;
 }
 
 .navLink {
   display: flex;
   align-items: center;
-
   height: 100%;
-
-  font-size: getFontSize(norm);
   font-weight: getFontWeight(regular);
   color: getColor(textPrimary);
-
   border: none;
 }
 

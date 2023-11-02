@@ -1,14 +1,14 @@
-.logo {
-  cursor: default;
+@import '../../sass/utils/mixins';
 
+.logo {
+  @include autoSize(font-size, 14, 20);
+  @include autoSize(line-height, 16, 24);
+
+  cursor: default;
   display: flex;
   gap: 8px;
   align-items: center;
-
   white-space: nowrap;
-
-  font-size: getFontSize(big);
-  font-weight: getFontWeight(medium);
-  line-height: 24px;
   letter-spacing: -0.4px;
+  padding-right: 20px;
 }

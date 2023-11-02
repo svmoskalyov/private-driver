@@ -1,38 +1,46 @@
 @import '../../sass/utils/functions';
+@import '../../sass/utils/mixins';
 
 .navAuth {
   display: flex;
-  gap: 16px;
+  height: 100%;
+}
+
+.navAuth li {
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .authRegistration {
-  padding: 14px 39px;
+  @include autoSizeBtn(padding-top, 8, 14);
+  @include autoSizeBtn(padding-right, 18, 39);
+  @include autoSize(line-height, 10, 20);
+  @include autoSize(border-radius, 6, 12);
 
-  font-size: getFontSize(norm);
   font-weight: getFontWeight(semibold);
-  line-height: 20px;
   color: getColor(defaultWhite);
-
   background-color: getColor(textPrimary);
   border: none;
-  border-radius: 12px;
   outline: none;
 }
 
 .authLogin {
+  @include autoSize(line-height, 10, 20);
+  @include autoSize(padding-right, 8, 16);
+
   display: flex;
   align-items: center;
-
-  min-width: 86px;
-
-  font-size: getFontSize(norm);
+  height: 100%;
+  white-space: nowrap;
   font-weight: getFontWeight(semibold);
-  line-height: 20px;
   color: getColor(textPrimary);
 }
 
 .icon {
-  size: 20px;
+  @include autoSize(size, 14, 20);
+  
+  height: 100%;
   margin-right: 8px;
   color: getColor(primary);
 }
