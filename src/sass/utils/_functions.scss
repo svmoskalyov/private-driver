@@ -9,7 +9,8 @@
 }
 
 @function getFontSize($key) {
-  @return map-get($fontsSizes, $key);
+  $pxvalue: map-get($fontsSizes, $key);
+  @return #{$pxvalue}px;
 }
 
 @function getColor($key) {
