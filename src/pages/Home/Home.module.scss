@@ -2,26 +2,22 @@
 @import '../../sass/utils/mixins';
 
 .home {
+  @include autoSize(padding, 16, 32);
+
   display: flex;
   flex-direction: column;
   gap: 24px;
-  padding: 16px;
-
-  @media screen and (min-width: getBreakpoint(tablet)) {
-    padding: 32px;
-  }
 }
 
 .home li {
-  @media screen and (min-width: getBreakpoint(tablet)) {
-    display: flex;
-  }
+  display: flex;
 }
 
 .home li:first-child {
+  @include autoSize(gap, 10, 40);
+
   flex-wrap: wrap;
   align-items: flex-end;
-  gap: 40px;
 }
 
 .home li:last-child {
@@ -34,15 +30,9 @@
   @include autoSize(font-size, 24, 48);
   @include autoSize(line-height, 32, 56);
 
-  max-width: 600px;
   font-weight: getFontWeight(medium);
   color: getColor(textPrimary);
   letter-spacing: -0.96px;
-  margin-bottom: 20px;
-
-  @media screen and (min-width: getBreakpoint(tablet)) {
-    margin: 0;
-  }
 }
 
 .titleAccent {
