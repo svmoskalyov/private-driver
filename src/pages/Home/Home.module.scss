@@ -1,14 +1,19 @@
 @import '../../sass/utils/functions';
+@import '../../sass/utils/mixins';
 
 .home {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  padding: 32px;
+  padding: 16px;
+
+  @media screen and (min-width: getBreakpoint(tablet)) {
+    padding: 32px;
+  }
 }
 
 .home li {
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: getBreakpoint(tablet)) {
     display: flex;
   }
 }
@@ -16,43 +21,36 @@
 .home li:first-child {
   flex-wrap: wrap;
   align-items: flex-end;
-  justify-content: space-between;
   gap: 40px;
 }
 
 .home li:last-child {
   justify-content: flex-end;
+  padding-right: 50px;
 }
 
 .title {
-  max-width: 600px;
+  @include autoSize(width, 300, 600);
+  @include autoSize(font-size, 24, 48);
+  @include autoSize(line-height, 32, 56);
 
-  font-size: 32px;
+  max-width: 600px;
   font-weight: getFontWeight(medium);
-  line-height: 56px;
   color: getColor(textPrimary);
   letter-spacing: -0.96px;
+  margin-bottom: 20px;
 
-  @media screen and (max-width: 767px) {
-    margin-bottom: 30px;
-    width: 300px;
-  }
-
-  @media screen and (min-width: 768px) {
-    width: calc(100vw - 60%);
-    font-size: getFontSize(extrabig);
+  @media screen and (min-width: getBreakpoint(tablet)) {
+    margin: 0;
   }
 }
 
 .titleAccent {
   transform: skewX(-10deg);
-
   display: inline-flex;
-
   margin-left: 8px;
   padding-right: 8px;
   padding-left: 4px;
-
   background: getColor(accent);
 }
 
@@ -61,21 +59,20 @@
 }
 
 .getStarted {
+  @include autoSizeBtn(padding-top, 8, 16);
+  @include autoSizeBtn(padding-right, 44, 88);
+  @include autoSize(font-size, 14, 18);
+  @include autoSize(line-height, 18, 28);
+  @include autoSize(border-radius, 6, 12);
+
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: max-content;
-  padding: 16px 88px;
-
-  font-size: getFontSize(babig);
-  font-weight: getFontWeight(semibold);
-  line-height: 28px;
+  margin-left: 40px;
   white-space: nowrap;
-
   background: getColor(primary);
   border: none;
-  border-radius: 12px;
   outline: none;
 }
 
@@ -85,27 +82,18 @@
 }
 
 .text {
+  @include autoSize(width, 300, 500);
+  @include autoSize(font-size, 12, 14);
+  @include autoSize(line-height, 14, 22);
+
   max-width: 500px;
-  width: 300px;
-  font-size: getFontSize(norm);
-  line-height: 22px;
   color: getColor(textPrimary);
   letter-spacing: -0.32px;
-
-  @media screen and (min-width: 768px) {
-    width: calc(100vw - 60%);
-  }
 }
 
 .img {
+  @include autoSize(width, 300, 600);
+  @include autoSize(border-radius, 12, 30);
+
   max-width: 600px;
-  border-radius: 30px;
-
-  @media screen and (max-width: 880px) {
-    width: 300px;
-  }
-
-  @media screen and (max-height: 690px) {
-    width: 500px;
-  }
 }
