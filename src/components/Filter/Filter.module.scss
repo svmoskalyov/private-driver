@@ -1,4 +1,5 @@
 @import '../../sass/utils/functions';
+@import '../../sass/utils/mixins';
 
 .filter {
   display: inline-flex;
@@ -7,13 +8,22 @@
 }
 
 .filterLabel {
-  font-size: getFontSize(med);
+  @include autoSize(font-size, 12, 14);
+  @include autoSize(line-height, 14, 18);
+
   font-weight: getFontWeight(medium);
-  line-height: 18px;
   color: getColor(textSecondary);
 }
 
 .btnFilter {
+  @include autoSize(width, 120, 160);
+  @include autoSize(height, 32, 48);
+  @include autoSizeBtn(padding-top, 8, 16);
+  @include autoSizeBtn(padding-right, 12, 18);
+  @include autoSize(font-size, 14, 18);
+  @include autoSize(line-height, 12, 20);
+  @include autoSize(border-radius, 8, 12);
+
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -26,13 +36,7 @@
   align-items: center;
   justify-content: space-between;
 
-  width: 160px;
-  height: 48px;
-  padding: 16px 18px;
-
-  font-size: getFontSize(babig);
   font-weight: getFontWeight(medium);
-  line-height: 20px;
   color: getColor(textPrimary);
   text-align: left;
   white-space: nowrap;
@@ -40,7 +44,6 @@
 
   background-color: getColor(defaultWhite);
   border: 1px solid transparent;
-  border-radius: 14px;
   outline: none;
 }
 
@@ -55,41 +58,43 @@
 }
 
 .dropdown {
+  @include autoSize(width, 120, 160);
+  @include autoSize(top, 36, 54);
+  @include autoSizeBtn(padding-top, 6, 14);
+  @include autoSizeBtn(padding-right, 12, 18);
+  @include autoSize(border-radius, 8, 12);
+
   position: absolute;
   z-index: 200;
-  top: 54px;
   left: 0;
 
   display: flex;
   flex-direction: column;
   gap: 8px;
 
-  width: 160px;
-  padding: 14px 18px;
-
   color: getColor(primary);
   text-align: left;
 
   background: getColor(defaultWhite);
-  border-radius: 12px;
+
   -webkit-box-shadow: 0px 10px 25px -20px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 10px 25px -20px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 10px 25px -20px rgba(0, 0, 0, 0.75);
 }
 
 .dropdownItem {
-  padding: 1px 8px;
+  @include autoSize(font-size, 14, 18);
+  @include autoSize(line-height, 16, 20);
+  @include autoSize(border-radius, 4, 8);
 
-  font-size: getFontSize(babig);
+  padding: 2px 8px;
   font-weight: getFontWeight(medium);
-  line-height: 20px;
   color: getColor(muted);
 }
 
 .dropdownItem:hover {
   color: getColor(defaultWhite);
   background-color: getColor(primary);
-  border-radius: 8px;
 }
 
 .choiced {
