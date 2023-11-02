@@ -1,10 +1,29 @@
-@mixin autoFontSize($min, $max) {
+@mixin autoSize($param, $min, $max) {
   $min-px: #{$min}px;
   $min-dev-px: getBreakpoint(mobile);
   $min-dev: getBreakpointNP(mobile);
   $max-dev: getBreakpointNP(laptop);
 
-  font-size: calc(
+  #{$param}: calc(
     $min-px + ($max - $min) * ((100vw - $min-dev-px) / ($max-dev - $min-dev))
   );
+}
+
+@mixin autoSizeBtn($param, $min, $max) {
+  $min-px: #{$min}px;
+  $min-dev-px: getBreakpoint(mobile);
+  $min-dev: getBreakpointNP(mobile);
+  $max-dev: getBreakpointNP(laptop);
+
+  $value: calc(
+    $min-px + ($max - $min) * ((100vw - $min-dev-px) / ($max-dev - $min-dev))
+  );
+
+  @if $param == padding-top {
+    padding-top: $value;
+    padding-bottom: $value;
+  } @else if $param == padding-right {
+    padding-right: $value;
+    padding-left: $value;
+  }
 }
