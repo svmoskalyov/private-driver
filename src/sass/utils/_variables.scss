@@ -11,15 +11,15 @@ $fontsWeights: (
 );
 
 $fontsSizes: (
-  'extrabig': 48px,
-  'larg': 40px,
-  'great': 24px,
-  'goodly': 22px,
-  'big': 20px,
-  'babig': 18px,
-  'norm': 16px,
-  'med': 14px,
-  'smal': 12px,
+  'extrabig': 48,
+  'larg': 40,
+  'great': 24,
+  'goodly': 22,
+  'big': 20,
+  'babig': 18,
+  'norm': 16,
+  'med': 14,
+  'smal': 12,
 );
 
 $colors: (
@@ -40,6 +40,6 @@ $colors: (
 
 $breakpoints: (
   'mobile': 320,
-  'tablet': 1024,
+  'tablet': 768,
   'laptop': 1440,
 );
