@@ -1,34 +1,48 @@
 @import '../../sass/utils/functions';
+@import '../../sass/utils/mixins';
 
 .topInfoList {
-  display: inline-flex;
-  gap: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  flex-direction: column;
+  margin-bottom: 16px;
 
-  @media screen and (max-width: 767px) {
-    margin-bottom: 32px;
+  @media screen and (min-width: 610px) {
+    flex-direction: row;
+
+    gap: 16px;
   }
 }
 
 .topInfoItem {
+  @include autoSize(line-height, 18, 24);
+
   display: flex;
-  align-items: center;
   font-weight: getFontWeight(medium);
-  line-height: 24px;
+  white-space: nowrap;
+
+  @media screen and (min-width: 480px) {
+    align-items: center;
+  }
 }
 
 .topInfoItem:not(:last-child):after {
-  content: '';
+  @media screen and (min-width: 610px) {
+    content: '';
 
-  width: 1px;
-  height: 70%;
-  margin-left: 16px;
+    width: 1px;
+    height: 70%;
+    margin-left: 16px;
 
-  background: getColor(muted);
+    background: getColor(muted);
+  }
 }
 
 .topInfoPrice {
+  @include autoSize(line-height, 18, 24);
+
   padding-left: 4px;
   font-weight: getFontWeight(medium);
-  line-height: 24px;
   color: getColor(price);
 }
