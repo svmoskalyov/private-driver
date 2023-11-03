@@ -164,7 +164,7 @@ input[type='radio']:focus {
 }
 
 .formLabel {
-  @include autoSize(line-height, 16, 22);
+  @include autoSize(line-height, 12, 22);
   @include autoSize(top, 8, 16);
   @include autoSize(left, 10, 18);
 
