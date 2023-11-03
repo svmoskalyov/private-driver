@@ -12,6 +12,11 @@
 
   display: flex;
   height: 100%;
+
+  @media screen and (max-width: 380px) {
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
 .navLink {
