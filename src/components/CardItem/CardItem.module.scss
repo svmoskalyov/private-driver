@@ -1,15 +1,14 @@
 @import '../../sass/utils/functions';
+@import '../../sass/utils/mixins';
 
 .cardItem {
+  @include autoSize(gap, 14, 48);
+  @include autoSize(padding, 14, 24);
+  @include autoSize(border-radius, 14, 24);
+
   display: flex;
-  gap: 48px;
-
   width: 100%;
-  min-height: 328px;
-  padding: 24px;
-
   background-color: getColor(defaultWhite);
-  border-radius: 24px;
 }
 
 .topBox {
@@ -17,23 +16,25 @@
 }
 
 .topWrapper {
+  @include autoSize(gap, 32, 66);
+
   display: flex;
-  gap: 64px;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .driverName {
-  margin-bottom: 32px;
-  font-size: getFontSize(great);
+  @include autoSize(font-size, 18, 24);
+  @include autoSize(line-height, 18, 24);
+  @include autoSize(margin-bottom, 16, 32);
+
   font-weight: getFontWeight(medium);
-  line-height: 24px;
 }
 
 .btnMore {
-  margin-bottom: 32px;
+  @include autoSize(margin-bottom, 16, 32);
+  @include autoSize(line-height, 18, 24);
+
   font-weight: getFontWeight(medium);
-  line-height: 24px;
   text-decoration-line: underline;
 }
 
@@ -43,16 +44,16 @@
 }
 
 .experience {
-  margin-bottom: 32px;
-  line-height: 24px;
+  @include autoSize(margin-bottom, 16, 32);
+  @include autoSize(line-height, 18, 24);
 }
 
 .btnBookTrip {
-  margin-top: 32px;
-  padding: 16px 48px;
+  @include autoSizeBtn(padding-top, 8, 16);
+  @include autoSizeBtn(padding-right, 24, 48);
+  @include autoSize(border-radius, 6, 12);
 
   background: getColor(primary);
-  border-radius: 12px;
   outline: none;
 }
 
