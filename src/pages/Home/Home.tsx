@@ -34,7 +34,6 @@ const Home = () => {
         <li>
           <img
             className={s.img}
-            loading='lazy'
             src={driver}
             width={600}
             height={375}
