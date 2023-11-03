@@ -1,8 +1,9 @@
 @import '../../sass/utils/functions';
+@import '../../sass/utils/mixins';
 
 .avatar {
-  width: 96px;
-  height: 96px;
+  @include autoSize(width, 66, 96);
+  @include autoSize(height, 66, 96);
 
   object-fit: cover;
   object-position: top center;
@@ -17,12 +18,12 @@
 }
 
 .avatarDriverWrapper {
+  @include autoSize(min-width, 80, 120);
+  @include autoSize(max-height, 80, 120);
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  min-width: 120px;
-  max-height: 120px;
 
   background: getColor(defaultWhite);
   border: 3px solid getColor(primary);
