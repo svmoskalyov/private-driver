@@ -83,9 +83,12 @@ export const FormBook = ({ driver_avatar, name, surname, onClose }: Props) => {
               {...register('name')}
               type='text'
               id='name'
+              autoComplete='name'
               placeholder=' '
             />
-            <label className={s.formLabel}>Full Name</label>
+            <label htmlFor='name' className={s.formLabel}>
+              Full Name
+            </label>
             {errors.name && (
               <p className={'errorForm'}>{errors.name.message}</p>
             )}
@@ -97,9 +100,12 @@ export const FormBook = ({ driver_avatar, name, surname, onClose }: Props) => {
               {...register('email')}
               type='email'
               id='email'
+              autoComplete='email'
               placeholder=' '
             />
-            <label className={s.formLabel}>Email</label>
+            <label htmlFor='email' className={s.formLabel}>
+              Email
+            </label>
             {errors.email && (
               <p className={'errorForm'}>{errors.email.message}</p>
             )}
@@ -111,9 +117,12 @@ export const FormBook = ({ driver_avatar, name, surname, onClose }: Props) => {
               {...register('phone')}
               type='tel'
               id='phone'
+              autoComplete='phone'
               placeholder=' '
             />
-            <label className={s.formLabel}>Phone Number</label>
+            <label htmlFor='phone' className={s.formLabel}>
+              Phone Number
+            </label>
             {errors.phone && (
               <p className={'errorForm'}>{errors.phone.message}</p>
             )}

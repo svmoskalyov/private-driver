@@ -56,6 +56,7 @@ export const FormLogin = ({ onClose }: Props) => {
               {...register('email')}
               type='email'
               id='email'
+              autoComplete='email'
               placeholder=' '
             />
             <label htmlFor='email' className={s.formLabel}>

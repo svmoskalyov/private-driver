@@ -56,9 +56,12 @@ export const FormRegistration = ({ onClose }: Props) => {
               {...register('name')}
               type='text'
               id='name'
+              autoComplete='off'
               placeholder=' '
             />
-            <label className={s.formLabel}>Name</label>
+            <label htmlFor='name' className={s.formLabel}>
+              Name
+            </label>
             {errors.name && (
               <p className={'errorForm'}>{errors.name.message}</p>
             )}
@@ -70,9 +73,12 @@ export const FormRegistration = ({ onClose }: Props) => {
               {...register('email')}
               type='email'
               id='email'
+              autoComplete='off'
               placeholder=' '
             />
-            <label className={s.formLabel}>Email</label>
+            <label htmlFor='email' className={s.formLabel}>
+              Email
+            </label>
             {errors.email && (
               <p className={'errorForm'}>{errors.email.message}</p>
             )}
@@ -91,7 +97,9 @@ export const FormRegistration = ({ onClose }: Props) => {
             ) : (
               <FiEyeOff className={s.eye} onClick={togglePassword} />
             )}
-            <label className={s.formLabel}>Password</label>
+            <label htmlFor='password' className={s.formLabel}>
+              Password
+            </label>
             {errors.password && (
               <p className={'errorForm'}>{errors.password.message}</p>
             )}
