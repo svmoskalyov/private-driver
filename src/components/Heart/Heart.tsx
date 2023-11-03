@@ -29,7 +29,7 @@ export const Heart = (el: DriverFav) => {
           className={'visuallyHidden'}
           type='checkbox'
           name='status'
-          checked={isFav}
+          checked={false}
           onChange={() => toast.info('Available to authorized users')}
         />
       )}
