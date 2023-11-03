@@ -1,20 +1,23 @@
 @import '../../sass/utils/functions';
+@import '../../sass/utils/mixins';
 
 .reviewerList,
 .reviewerItem:not(:last-child) {
-  margin-bottom: 32px;
+  @include autoSize(margin-bottom, 16, 32);
 }
 
 .listBox {
+  @include autoSize(margin-bottom, 8, 16);
+
   display: flex;
   gap: 12px;
-  margin-bottom: 16px;
 }
 
 .reviewerName,
 .reviewerComment {
+  @include autoSize(line-height, 18, 24);
+
   font-weight: getFontWeight(medium);
-  line-height: 24px;
 }
 
 .reviewerName {
