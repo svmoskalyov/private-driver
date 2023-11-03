@@ -2,8 +2,14 @@
 @import '../../sass/utils/mixins';
 
 .navAuth {
+  @include autoSize(gap, 8, 16);
+
   display: flex;
   height: 100%;
+
+  @media screen and (max-width: 465px) {
+    flex-direction: column;
+  }
 }
 
 .navAuth li {
@@ -27,7 +33,6 @@
 
 .authLogin {
   @include autoSize(line-height, 10, 20);
-  @include autoSize(padding-right, 8, 16);
 
   display: flex;
   align-items: center;
@@ -39,7 +44,7 @@
 
 .icon {
   @include autoSize(size, 14, 20);
-  
+
   height: 100%;
   margin-right: 8px;
   color: getColor(primary);
