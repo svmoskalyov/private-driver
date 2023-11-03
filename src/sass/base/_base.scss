@@ -22,12 +22,12 @@ body {
 
 .errorForm {
   @include autoSize(font-size, 10, 12);
+  @include autoSize(padding-left, 18, 26);
+  @include autoSize(bottom, -12, -16);
 
   position: absolute;
-  bottom: -15px;
   left: 0;
 
-  padding-left: 20px;
   color: getColor(error);
 }
 
