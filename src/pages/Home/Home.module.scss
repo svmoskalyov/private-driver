@@ -21,12 +21,13 @@
 }
 
 .home li:last-child {
+  @include autoSize(padding-right, 8, 50);
+
   justify-content: flex-end;
-  padding-right: 50px;
 }
 
 .title {
-  @include autoSize(width, 300, 600);
+  @include autoSize(width, 260, 600);
   @include autoSize(font-size, 24, 48);
   @include autoSize(line-height, 32, 56);
 
@@ -72,7 +73,7 @@
 }
 
 .text {
-  @include autoSize(width, 300, 500);
+  @include autoSize(width, 260, 500);
   @include autoSize(font-size, 12, 14);
   @include autoSize(line-height, 14, 22);
 
@@ -82,7 +83,7 @@
 }
 
 .img {
-  @include autoSize(width, 300, 600);
+  @include autoSize(width, 260, 600);
   @include autoSize(border-radius, 12, 30);
 
   max-width: 600px;
