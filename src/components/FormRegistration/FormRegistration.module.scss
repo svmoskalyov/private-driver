@@ -1,59 +1,65 @@
 @import '../../sass/utils/functions';
+@import '../../sass/utils/mixins';
 
 .formRegistration {
-  max-width: 566px;
+  @include autoSize(max-width, 219, 438);
+
   background: getColor(defaultWhite);
 }
 
 .title {
-  margin-bottom: 20px;
+  @include autoSize(margin-bottom, 10, 20);
+  @include autoSize(font-size, 24, 40);
+  @include autoSize(line-height, 32, 48);
 
-  font-size: getFontSize(larg);
   font-weight: getFontWeight(medium);
-  line-height: 48px;
   letter-spacing: -0.8px;
 }
 
 .text {
-  margin-bottom: 40px;
-  font-size: getFontSize(norm);
-  line-height: 22px;
+  @include autoSize(margin-bottom, 20, 40);
+  @include autoSize(line-height, 16, 22);
+
   color: getColor(textStat);
 }
 
 .form {
+  @include autoSize(gap, 20, 40);
+
   display: flex;
   flex-direction: column;
-  gap: 40px;
 }
 
 .formList {
+  @include autoSize(gap, 12, 18);
+
   display: flex;
   flex-direction: column;
-  gap: 18px;
 }
 
 .formItem {
+  @include autoSize(height, 32, 54);
+
   position: relative;
-  height: 54px;
 }
 
 .formInput {
+  @include autoSizeBtn(padding-top, 8, 16);
+  @include autoSizeBtn(padding-right, 10, 18);
+  @include autoSize(line-height, 16, 22);
+  @include autoSize(border-radius, 6, 12);
+
   position: absolute;
   top: 0;
   left: 0;
 
   width: 100%;
   height: 100%;
-  padding: 16px 18px;
 
-  font-size: getFontSize(norm);
-  line-height: 22px;
   color: getColor(textPrimary);
-
   background: none;
   border: 2px solid rgba(18, 20, 23, 0.1);
-  border-radius: 12px;
+
   outline: none;
 }
 
@@ -66,19 +72,15 @@
 }
 
 .formLabel {
+  @include autoSize(line-height, 16, 22);
+  @include autoSize(top, 8, 16);
+  @include autoSize(left, 10, 18);
+
   pointer-events: none;
   cursor: text;
-
   position: absolute;
-  top: 16px;
-  left: 18px;
-
   padding: 0 8px;
-
-  font-size: getFontSize(norm);
-  line-height: 22px;
   color: getColor(textPrimary);
-
   background-color: getColor(defaultWhite);
 
   -webkit-transition:
@@ -93,25 +95,25 @@
 
 .formInput:focus ~ .formLabel,
 .formInput:not(:placeholder-shown).formInput:not(:focus) ~ .formLabel {
-  top: -10px;
-  left: 12px;
-  font-size: getFontSize(smal);
+  @include autoSize(top, -6, -10);
+  @include autoSize(left, 10, -12);
+  @include autoSize(font-size, 10, 12);
 }
 
 .eye {
+  @include autoSize(top, 10, 18);
+  @include autoSize(right, 10, 18);
+
   cursor: pointer;
-
   position: absolute;
-  top: 18px;
-  right: 18px;
-
   width: 20px;
-
   color: getColor(textPrimary);
 }
 
 .btnRegistration {
-  padding: 16px;
+  @include autoSize(padding, 10, 16);
+  @include autoSize(border-radius, 6, 12);
+
   background: getColor(primary);
   outline: none;
 }
