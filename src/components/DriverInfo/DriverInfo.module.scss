@@ -1,6 +1,9 @@
 @import '../../sass/utils/functions';
+@import '../../sass/utils/mixins';
 
 .infoList {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 16px;
 }
 
@@ -14,15 +17,19 @@
 }
 
 .infoName {
+  @include autoSize(line-height, 18, 24);
+
   font-weight: getFontWeight(medium);
-  line-height: 24px;
   color: getColor(textSecondary);
   white-space: nowrap;
 }
 
 .infoText {
-  line-height: 24px;
+  @include autoSize(line-height, 18, 24);
+
   color: getColor(textPrimary);
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .infoText span:not(:last-child)::after {
