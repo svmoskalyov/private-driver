@@ -1,4 +1,5 @@
 @import '../../sass/utils/functions';
+@import '../../sass/utils/mixins';
 
 .rating {
   display: inline-flex;
@@ -13,11 +14,13 @@
 }
 
 .ratingValue {
+  @include autoSize(line-height, 14, 18);
+
   font-weight: getFontWeight(medium);
-  line-height: 18px;
 }
 
 .ratingValueTop {
+  @include autoSize(line-height, 18, 24);
+
   font-weight: getFontWeight(medium);
-  line-height: 24px;
 }
