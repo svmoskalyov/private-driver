@@ -1,22 +1,24 @@
 @import '../../sass/utils/functions';
+@import '../../sass/utils/mixins';
 
 .categoriesList {
+  @include autoSize(margin-bottom, 16, 32);
+
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
 }
 
 .categoriesItems {
+  @include autoSize(font-size, 12, 14);
+  @include autoSize(line-height, 12, 16);
+  @include autoSize(width, 28, 44);
+  @include autoSize(height, 28, 44);
+
   display: flex;
   align-items: center;
   justify-content: center;
-
-  width: 44px;
-  height: 44px;
-
-  font-size: getFontSize(med);
   font-weight: getFontWeight(medium);
-  line-height: 16px;
-
   border: 1px solid getColor(muted);
   border-radius: 50%;
 }
