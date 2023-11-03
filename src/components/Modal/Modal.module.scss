@@ -1,4 +1,5 @@
 @import '../../sass/utils/functions';
+@import '../../sass/utils/mixins';
 
 .backdrop {
   position: fixed;
@@ -13,26 +14,27 @@
 
   width: 100%;
   height: 100%;
-  padding: 32px;
 
   background-color: getColor(muted);
   backdrop-filter: blur(4px);
 }
 
 .modalWrapper {
+  @include autoSize(padding, 32, 64);
+  @include autoSize(border-radius, 14, 30);
+
   position: relative;
-  padding: 64px;
   background: getColor(defaultWhite);
-  border-radius: 30px;
 }
 
 .btnModalCloseWrapper {
-  position: absolute;
-  top: 20px;
-  right: 20px;
+  @include autoSize(top, 10, 20);
+  @include autoSize(right, 10, 20);
+  @include autoSize(width, 16, 32);
+  @include autoSize(height, 16, 32);
 
-  width: 32px;
-  height: 32px;
+  position: absolute;
+
   margin: 0;
   padding: 0;
 
