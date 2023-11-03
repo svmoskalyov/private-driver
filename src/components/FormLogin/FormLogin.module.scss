@@ -99,7 +99,7 @@
 .formInput:focus ~ .formLabel,
 .formInput:not(:placeholder-shown).formInput:not(:focus) ~ .formLabel {
   @include autoSize(top, -6, -10);
-  @include autoSize(left, 10, -12);
+  @include autoSize(left, 10, 16);
   @include autoSize(font-size, 10, 12);
 }
 
