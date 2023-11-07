@@ -2,7 +2,7 @@
   $min-px: #{$min}px;
   $min-dev-px: getBreakpoint(mobile);
   $min-dev: getBreakpointNP(mobile);
-  $max-dev: getBreakpointNP(laptop);
+  $max-dev: getBreakpointNP(desktop);
 
   #{$param}: calc(
     $min-px + ($max - $min) * ((100vw - $min-dev-px) / ($max-dev - $min-dev))
@@ -13,7 +13,7 @@
   $min-px: #{$min}px;
   $min-dev-px: getBreakpoint(mobile);
   $min-dev: getBreakpointNP(mobile);
-  $max-dev: getBreakpointNP(laptop);
+  $max-dev: getBreakpointNP(desktop);
 
   $value: calc(
     $min-px + ($max - $min) * ((100vw - $min-dev-px) / ($max-dev - $min-dev))
