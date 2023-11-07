@@ -3,12 +3,16 @@
 
 .formBook {
   @include autoSize(max-width, 219, 344);
+  @include autoSize(max-height, 430, 737);
 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background: getColor(defaultWhite);
 }
 
 .title {
-  @include autoSize(margin-bottom, 10, 20);
+  @include autoSize(margin-bottom, 4, 20);
   @include autoSize(font-size, 24, 40);
   @include autoSize(line-height, 32, 48);
 
@@ -17,14 +21,14 @@
 }
 
 .text {
-  @include autoSize(margin-bottom, 20, 40);
+  @include autoSize(margin-bottom, 8, 40);
   @include autoSize(line-height, 16, 22);
 
   color: getColor(textStat);
 }
 
 .driver {
-  @include autoSize(margin-bottom, 20, 40);
+  @include autoSize(margin-bottom, 8, 40);
 
   display: flex;
 }
@@ -49,14 +53,14 @@
 }
 
 .form {
-  @include autoSize(gap, 20, 40);
+  @include autoSize(gap, 18, 40);
 
   display: flex;
   flex-direction: column;
 }
 
 .planningTitle {
-  @include autoSize(margin-bottom, 10, 20);
+  @include autoSize(margin-bottom, 4, 20);
   @include autoSize(font-size, 14, 24);
   @include autoSize(line-height, 16, 32);
 
@@ -64,7 +68,7 @@
 }
 
 .planningList {
-  @include autoSize(gap, 6, 16);
+  @include autoSize(gap, 2, 8);
 
   position: relative;
   display: flex;
@@ -78,7 +82,6 @@
 .planningLabel {
   @include autoSize(line-height, 12, 22);
   @include autoSize(gap, 2, 8);
-  // gap: 8px;
 
   display: grid;
   grid-template-columns: 20px auto;
