@@ -14,7 +14,7 @@ Click on "Book a trip" button - which opens a window with a form
 to book a driver.
 Modal windows are closed by clicking on the button as a "cross", by clicking on the backdrop, or by pressing the Esc key.
 
-### 🛠 Technologies stack
+### 🧰 Technologies stack 
 TypeScript, React, Redux, SASS/SCSS, Firebase, React DOM, React Router, React Icons, React Spinners, React Toastify, Redux Toolkit, Redux Persist, Axios, Yup,  Vite, Plop, Husky, Prettier, ESLint, StyleLint.
 
 ---
