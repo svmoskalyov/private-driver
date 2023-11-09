@@ -18,11 +18,7 @@ Modal windows are closed by clicking on the button as a "cross", by clicking on 
 TypeScript, React, Redux, SASS/SCSS, Firebase, React DOM, React Router, React Icons, React Spinners, React Toastify, Redux Toolkit, Redux Persist, Axios, Yup,  Vite, Plop, Husky, Prettier, ESLint, StyleLint.
 
 ---
-![image](https://github.com/svmoskalyov/private-driver/assets/107481840/07f9dffd-5d68-4c22-aaa2-6f1a0220d9a8)
+https://github.com/svmoskalyov/private-driver/assets/107481840/e1b7fd60-fe73-4b0c-a0d2-56a530d9f514
 
 ---
-![image](https://github.com/svmoskalyov/private-driver/assets/107481840/47ce81ff-261c-459d-ba40-6de60b1174f0)
-
----
-![image](https://github.com/svmoskalyov/private-driver/assets/107481840/f9fe68dc-89c0-4cc1-a504-22abc606a2b0)
-
+![private-driver](https://github.com/svmoskalyov/private-driver/assets/107481840/bb463abc-1ff2-4047-9779-05ab9c3bfd0f)
