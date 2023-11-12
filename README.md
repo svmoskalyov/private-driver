@@ -15,7 +15,7 @@ to book a driver.
 Modal windows are closed by clicking on the button as a "cross", by clicking on the backdrop, or by pressing the Esc key.
 
 ### 🧰 Technologies stack 
-TypeScript, React, Redux, SASS/SCSS, Firebase, React DOM, React Router, React Icons, React Spinners, React Toastify, Redux Toolkit, Redux Persist, Axios, Yup,  Vite, Plop, Husky, Prettier, ESLint, StyleLint.
+TypeScript, React, Redux, SASS/SCSS, Firebase Database, Firebase Auth, React DOM, React Router, React Icons, React Spinners, React Toastify, Redux Toolkit, Redux Persist, Axios, Yup,  Vite, Plop, Husky, Prettier, ESLint, StyleLint.
 
 ---
 https://github.com/svmoskalyov/private-driver/assets/107481840/e1b7fd60-fe73-4b0c-a0d2-56a530d9f514
